@@ -1,6 +1,8 @@
-# Auto detect text files and perform LF normalization
-* text=auto
+# Backup versi lama & paket deploy tidak ikut ke repo
 _original/
 *.zip
+
+# File sistem
 Thumbs.db
 .DS_Store
+desktop.ini
