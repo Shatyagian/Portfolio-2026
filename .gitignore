@@ -1,0 +1,6 @@
+# Auto detect text files and perform LF normalization
+* text=auto
+_original/
+*.zip
+Thumbs.db
+.DS_Store
