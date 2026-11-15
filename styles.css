@@ -601,7 +601,23 @@ section[id] {
   font-size: 0.62rem;
 }
 
+.hero-foot__skills {
+  min-width: 0;
+  flex: 1 1 auto;
+  line-height: 1.65;
+  text-wrap: pretty;
+}
+
+.hero-foot__label {
+  display: block;
+  margin-bottom: 0.35rem;
+  color: var(--accent);
+  font-size: 0.6rem;
+  letter-spacing: 0.2em;
+}
+
 .hero-foot a {
+  flex: 0 0 auto;
   display: inline-flex;
   min-height: 44px;
   align-items: center;

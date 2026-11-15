@@ -31,7 +31,24 @@ Buka URL yang muncul (biasanya `http://localhost:3000`).
 
 ## Publikasi
 
-### Opsi A — Netlify Drop (paling cepat)
+### Live sekarang — Vercel
+
+**URL produksi:** <https://shatyagianrproject.vercel.app>
+
+Project: `shatya-gian/portfolio-2026`. Static site, tanpa build step.
+
+Update setelah ganti foto atau edit file:
+
+```powershell
+cd "H:\Portfolio 2026"
+npx.cmd vercel@latest deploy --prod
+```
+
+URL tidak berubah. Sekitar 20 detik. Login Vercel sudah tersimpan di mesin ini.
+
+File yang tidak ikut ter-upload diatur di `.vercelignore` (`_original/`, `*.zip`, `.git/`, README ini). Jadi backup dan paket zip tetap lokal.
+
+### Opsi lain — Netlify Drop (tanpa terminal)
 
 1. Buka <https://app.netlify.com/drop>
 2. Drag **`shatya-gian-portfolio-2026-deploy.zip`** (atau folder `assets` + 3 file di atas) ke halaman itu.
