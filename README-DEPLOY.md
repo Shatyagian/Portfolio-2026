@@ -46,6 +46,15 @@ npx.cmd vercel@latest deploy --prod
 
 URL tidak berubah. Sekitar 20 detik. Login Vercel sudah tersimpan di mesin ini.
 
+**Kalau foto diganti dengan nama file yang sama:** browser menyimpan cache gambar sampai 1 hari. Supaya foto baru langsung terlihat tanpa hard-refresh, naikkan angka versi di URL-nya. Contoh untuk hero:
+
+```html
+<link rel="preload" href="assets/images/img-001.webp?v=3" as="image" type="image/webp">
+<img src="assets/images/img-001.webp?v=3" ...>
+```
+
+Sebutkan saja ke saya foto mana yang diganti, nanti saya urus versi + ukuran `width`/`height`-nya.
+
 File yang tidak ikut ter-upload diatur di `.vercelignore` (`_original/`, `*.zip`, `.git/`, README ini). Jadi backup dan paket zip tetap lokal.
 
 ### Opsi lain — Netlify Drop (tanpa terminal)
