@@ -1,0 +1,9 @@
+_original/
+*.zip
+.git/
+.gitignore
+.gitattributes
+README-DEPLOY.md
+Thumbs.db
+.DS_Store
+desktop.ini

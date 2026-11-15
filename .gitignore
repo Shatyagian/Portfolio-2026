@@ -6,3 +6,6 @@ _original/
 Thumbs.db
 .DS_Store
 desktop.ini
+
+# Vercel CLI (berisi ID project, bukan kode situs)
+.vercel/
