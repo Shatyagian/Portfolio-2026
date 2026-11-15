@@ -837,6 +837,377 @@ section[id] {
 }
 
 /* --------------------------------------------------------------------------
+   Catalog
+   -------------------------------------------------------------------------- */
+
+.catalog {
+  margin-top: clamp(1.75rem, 4vw, 3rem);
+}
+
+.catalog-stage {
+  position: relative;
+  width: min(100%, 1040px);
+  margin-inline: auto;
+  aspect-ratio: 500 / 707;
+  perspective: 2400px;
+  perspective-origin: 50% 42%;
+}
+
+.catalog-stage[data-orientation="landscape"] {
+  aspect-ratio: 1040 / 736;
+}
+
+.catalog-stage::after {
+  position: absolute;
+  z-index: 0;
+  bottom: 0;
+  left: 50%;
+  width: 66%;
+  height: clamp(1.1rem, 2vw, 1.9rem);
+  translate: -50% 42%;
+  background: radial-gradient(ellipse at center, rgba(21, 18, 15, 0.3), rgba(21, 18, 15, 0) 72%);
+  filter: blur(8px);
+  content: "";
+  pointer-events: none;
+}
+
+.catalog-cover {
+  position: absolute;
+  z-index: 2;
+  inset-block: 0;
+  left: 0;
+  width: 100%;
+  padding: 0;
+  border: 0;
+  background: none;
+  cursor: pointer;
+  transform-style: preserve-3d;
+  transition: opacity 240ms var(--ease), transform 420ms var(--ease);
+}
+
+.catalog-stage[data-orientation="landscape"] .catalog-cover {
+  left: 50%;
+  width: 50%;
+  translate: -50% 0;
+}
+
+.catalog-cover__sheet {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 100%;
+  transform: rotateY(-11deg) rotateX(2.5deg);
+  transform-origin: 50% 50%;
+  transform-style: preserve-3d;
+  transition: transform 420ms var(--ease);
+}
+
+.catalog-cover__sheet img {
+  width: 100%;
+  height: 100%;
+  border-radius: var(--radius);
+  object-fit: cover;
+  box-shadow:
+    0 32px 56px -30px rgba(21, 18, 15, 0.62),
+    0 6px 16px -8px rgba(21, 18, 15, 0.24);
+}
+
+.catalog-cover__sheet::after {
+  position: absolute;
+  inset: auto 5px -7px 3px;
+  height: 8px;
+  border-radius: 0 0 3px 3px;
+  background: repeating-linear-gradient(#f6f1e6 0 1px, #e6ddc9 1px 2px);
+  box-shadow: 0 8px 14px -8px rgba(21, 18, 15, 0.45);
+  content: "";
+}
+
+.catalog-cover__spine {
+  position: absolute;
+  z-index: 1;
+  inset: 0 auto 0 0;
+  width: 5%;
+  border-radius: var(--radius) 0 0 var(--radius);
+  background: linear-gradient(
+    90deg,
+    rgba(21, 18, 15, 0.34),
+    rgba(21, 18, 15, 0.08) 42%,
+    rgba(255, 255, 255, 0.16) 68%,
+    rgba(21, 18, 15, 0) 100%
+  );
+  pointer-events: none;
+}
+
+.catalog-cover__edges {
+  position: absolute;
+  z-index: -1;
+  top: 4px;
+  right: -9px;
+  bottom: 8px;
+  width: 10px;
+  border-radius: 0 3px 3px 0;
+  background: repeating-linear-gradient(90deg, #eee6d5 0 1px, #faf6ee 1px 3px);
+  box-shadow: 4px 0 10px rgba(21, 18, 15, 0.22);
+  pointer-events: none;
+}
+
+.catalog-cover__hint {
+  position: absolute;
+  z-index: 3;
+  bottom: clamp(0.75rem, 2vw, 1.35rem);
+  left: 50%;
+  display: inline-flex;
+  min-height: 34px;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.35rem 0.85rem;
+  translate: -50% 0;
+  border: 1px solid rgba(247, 243, 234, 0.28);
+  border-radius: 999px;
+  background: var(--ink);
+  color: var(--on-dark);
+  font-size: 0.6rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  white-space: nowrap;
+  text-transform: uppercase;
+  transition: background 180ms ease, border-color 180ms ease;
+}
+
+.catalog-cover:hover .catalog-cover__sheet,
+.catalog-cover:focus-visible .catalog-cover__sheet {
+  transform: rotateY(-15deg) rotateX(3deg);
+}
+
+.catalog-cover:hover .catalog-cover__hint {
+  background: var(--accent);
+  border-color: var(--accent);
+}
+
+.catalog-stage[data-state="opening"] .catalog-cover,
+.catalog-stage[data-state="open"] .catalog-cover {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.catalog-stage[data-state="open"] .catalog-cover {
+  visibility: hidden;
+}
+
+.catalog-stage[data-state="closing"] .catalog-cover {
+  opacity: 1;
+  transition: opacity 380ms var(--ease) 100ms;
+}
+
+.catalog-book-wrap {
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  width: 100%;
+  opacity: 0;
+  pointer-events: none;
+  transform-style: preserve-3d;
+  transition: opacity 240ms var(--ease);
+}
+
+.catalog-stage[data-state="opening"] .catalog-book-wrap {
+  opacity: 1;
+}
+
+.catalog-stage[data-state="opening"] .catalog-book-wrap {
+  clip-path: inset(0 0 0 50%);
+  transform: translateX(-25%) rotateY(-9deg) scale(0.986);
+}
+
+.catalog-stage[data-state="opening"][data-orientation="portrait"] .catalog-book-wrap {
+  clip-path: none;
+  transform: rotateY(-8deg) scale(0.986);
+}
+
+.catalog-stage[data-state="opening"].is-revealing .catalog-book-wrap {
+  clip-path: inset(0 0 0 0%);
+  transform: translateX(0) rotateY(0) scale(1);
+  transition:
+    clip-path 700ms var(--ease),
+    transform 700ms var(--ease);
+}
+
+.catalog-stage[data-state="opening"].is-revealing[data-orientation="portrait"] .catalog-book-wrap {
+  clip-path: none;
+  transform: rotateY(0) scale(1);
+}
+
+.catalog-stage[data-state="open"] .catalog-book-wrap {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.catalog-stage[data-state="closing"] .catalog-book-wrap {
+  opacity: 0;
+  transform: translateY(8px) scale(0.985);
+  transition:
+    opacity 280ms var(--ease),
+    transform 380ms var(--ease);
+}
+
+.catalog-book {
+  width: 100%;
+  font-family: var(--body);
+}
+
+.catalog-page {
+  overflow: hidden;
+  background: var(--surface);
+}
+
+.catalog-page img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.catalog-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-top: clamp(1.6rem, 3vw, 2.4rem);
+  padding-top: 1rem;
+  border-top: 1px solid var(--line);
+}
+
+.catalog-nav {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.catalog-btn {
+  display: inline-flex;
+  width: 44px;
+  height: 44px;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  border: 1px solid var(--line-strong);
+  border-radius: 999px;
+  background: transparent;
+  color: var(--ink);
+  font-size: 1.05rem;
+  line-height: 1;
+  cursor: pointer;
+  transition: background 180ms ease, border-color 180ms ease, color 180ms ease, opacity 180ms ease;
+}
+
+.catalog-btn:hover:not(:disabled) {
+  border-color: var(--ink);
+  background: var(--ink);
+  color: var(--on-dark);
+}
+
+.catalog-btn:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+
+.catalog-counter {
+  min-width: 8rem;
+  color: var(--muted);
+  font-size: 0.66rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-align: center;
+  text-transform: uppercase;
+  font-variant-numeric: tabular-nums;
+}
+
+.catalog-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: clamp(1rem, 2.5vw, 1.9rem);
+}
+
+.catalog-link,
+.catalog-download {
+  display: inline-flex;
+  min-height: 44px;
+  align-items: center;
+  gap: 0.4rem;
+  color: var(--ink);
+  font-size: 0.66rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  transition: color 180ms ease, border-color 180ms ease, opacity 180ms ease;
+}
+
+.catalog-link {
+  padding: 0;
+  border: 0;
+  border-bottom: 1px solid transparent;
+  background: none;
+  cursor: pointer;
+}
+
+.catalog-link:hover:not(:disabled),
+.catalog-download:hover {
+  color: var(--accent);
+  border-color: var(--accent);
+}
+
+.catalog-link:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+
+.catalog-download {
+  border-bottom: 1px solid var(--line-strong);
+}
+
+.catalog-note {
+  margin-top: 0.9rem;
+  color: var(--muted);
+  font-size: 0.6rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.catalog-noscript {
+  margin-top: 0.9rem;
+  color: var(--muted);
+  font-size: 0.85rem;
+}
+
+.catalog-noscript a {
+  color: var(--accent);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+@media (max-width: 600px) {
+  .catalog-toolbar {
+    justify-content: center;
+  }
+
+  .catalog-actions {
+    justify-content: center;
+    width: 100%;
+  }
+
+  .catalog-counter {
+    min-width: 6.5rem;
+  }
+
+  .catalog-note {
+    text-align: center;
+  }
+}
+
+/* --------------------------------------------------------------------------
    Work
    -------------------------------------------------------------------------- */
 

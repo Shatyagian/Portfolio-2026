@@ -289,3 +289,234 @@ dialog?.addEventListener("close", () => {
   dialogOpener?.focus();
   dialogOpener = null;
 });
+
+/* --------------------------------------------------------------------------
+   Interactive catalog
+   -------------------------------------------------------------------------- */
+
+const catalog = document.querySelector("[data-catalog]");
+const catalogStage = document.querySelector("[data-catalog-stage]");
+const catalogBookEl = document.querySelector("[data-catalog-book]");
+const catalogCover = document.querySelector("[data-catalog-cover]");
+const catalogPrev = document.querySelector("[data-catalog-prev]");
+const catalogNext = document.querySelector("[data-catalog-next]");
+const catalogClose = document.querySelector("[data-catalog-close]");
+const catalogCounter = document.querySelector("[data-catalog-counter]");
+
+const CATALOG_PAGES = 12;
+const CATALOG_FILE = "assets/documents/katalog-digital-implant-2026.pdf";
+const catalogMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+
+let catalogFlip = null;
+let catalogBusy = false;
+let catalogObserver = null;
+
+function catalogPageSrc(index) {
+  return `assets/catalog/page-${String(index + 1).padStart(2, "0")}.webp`;
+}
+
+function buildCatalogPages() {
+  const fragment = document.createDocumentFragment();
+
+  for (let i = 0; i < CATALOG_PAGES; i += 1) {
+    const page = document.createElement("div");
+    page.className = "catalog-page";
+    page.setAttribute("data-density", i === 0 || i === CATALOG_PAGES - 1 ? "hard" : "soft");
+
+    const image = document.createElement("img");
+    image.src = catalogPageSrc(i);
+    image.alt = "";
+    image.width = 1130;
+    image.height = 1598;
+    image.loading = "eager";
+    image.decoding = "async";
+
+    page.append(image);
+    fragment.append(page);
+  }
+
+  catalogBookEl.append(fragment);
+  return [...catalogBookEl.querySelectorAll(".catalog-page")];
+}
+
+function catalogLabel(index) {
+  if (index <= 0) return "Cover";
+  if (catalogStage.dataset.orientation === "portrait") return `Page ${index + 1}`;
+  if (index >= CATALOG_PAGES - 1) return `Page ${CATALOG_PAGES}`;
+  return `Pages ${index + 1}–${index + 2}`;
+}
+
+function catalogIsOpen() {
+  const state = catalogStage.dataset.state;
+  return state === "open" || state === "opening";
+}
+
+function syncCatalogUI() {
+  if (!catalogFlip || !catalogStage) return;
+  const index = catalogFlip.getCurrentPageIndex();
+  const open = catalogIsOpen();
+  const last = index >= CATALOG_PAGES - 1;
+
+  catalogCounter.textContent = catalogLabel(index);
+  catalogCover.setAttribute("aria-expanded", String(open));
+  catalogPrev.disabled = !open || catalogBusy;
+  catalogNext.disabled = !open || last || catalogBusy;
+  catalogClose.disabled = !open || catalogBusy;
+}
+
+function initCatalog() {
+  if (catalogFlip || !catalogStage || !window.St || !window.St.PageFlip) return catalogFlip;
+
+  const pages = buildCatalogPages();
+
+  catalogFlip = new window.St.PageFlip(catalogBookEl, {
+    width: 520,
+    height: 736,
+    size: "stretch",
+    minWidth: 280,
+    maxWidth: 520,
+    minHeight: 396,
+    maxHeight: 736,
+    drawShadow: true,
+    flippingTime: catalogMotion.matches ? 1 : 700,
+    usePortrait: true,
+    startZIndex: 0,
+    autoSize: true,
+    maxShadowOpacity: 0.26,
+    showCover: true,
+    mobileScrollSupport: true,
+    swipeDistance: 24,
+    showPageCorners: true
+  });
+
+  catalogFlip.loadFromHTML(pages);
+  catalogStage.dataset.orientation = catalogFlip.getOrientation();
+
+  catalogFlip.on("flip", (event) => {
+    if (catalogStage.dataset.state === "open" && event.data <= 0) {
+      closeCatalog();
+      return;
+    }
+    syncCatalogUI();
+  });
+
+  syncCatalogUI();
+  return catalogFlip;
+}
+
+function openCatalog() {
+  if (!catalogStage) return;
+
+  if (!initCatalog()) {
+    window.location.href = CATALOG_FILE;
+    return;
+  }
+
+  if (catalogBusy || catalogStage.dataset.state !== "closed") return;
+
+  catalogBusy = true;
+  catalogStage.dataset.state = "opening";
+  catalogStage.classList.remove("is-revealing");
+  catalogFlip.turnToPage(0);
+  syncCatalogUI();
+
+  const reveal = () => {
+    catalogStage.classList.add("is-revealing");
+    catalogFlip.flipNext();
+
+    window.setTimeout(() => {
+      catalogStage.dataset.state = "open";
+      catalogBusy = false;
+      syncCatalogUI();
+      catalogNext.focus({ preventScroll: true });
+    }, catalogMotion.matches ? 0 : 760);
+  };
+
+  if (catalogMotion.matches) reveal();
+  else window.setTimeout(reveal, 220);
+}
+
+function closeCatalog() {
+  if (!catalogStage || !catalogFlip) return;
+  if (catalogBusy || catalogStage.dataset.state === "closed") return;
+
+  catalogBusy = true;
+  catalogStage.dataset.state = "closing";
+  syncCatalogUI();
+
+  const finish = () => {
+    catalogFlip.turnToPage(0);
+    catalogStage.dataset.state = "closed";
+    catalogStage.classList.remove("is-revealing");
+    catalogBusy = false;
+    syncCatalogUI();
+    catalogCover.focus({ preventScroll: true });
+  };
+
+  if (catalogMotion.matches) finish();
+  else window.setTimeout(finish, 560);
+}
+
+function catalogNextPage() {
+  if (!catalogFlip || catalogBusy || catalogStage.dataset.state !== "open") return;
+  if (catalogFlip.getCurrentPageIndex() >= CATALOG_PAGES - 1) return;
+  catalogFlip.flipNext();
+}
+
+function catalogPrevPage() {
+  if (!catalogFlip || catalogBusy || catalogStage.dataset.state !== "open") return;
+  if (catalogFlip.getCurrentPageIndex() <= 1) {
+    closeCatalog();
+    return;
+  }
+  catalogFlip.flipPrev();
+}
+
+if (catalog && catalogStage && catalogBookEl) {
+  catalogCover?.addEventListener("click", openCatalog);
+  catalogClose?.addEventListener("click", closeCatalog);
+  catalogNext?.addEventListener("click", catalogNextPage);
+  catalogPrev?.addEventListener("click", catalogPrevPage);
+
+  catalog.addEventListener("keydown", (event) => {
+    if (event.key === "ArrowRight") {
+      event.preventDefault();
+      catalogNextPage();
+    } else if (event.key === "ArrowLeft") {
+      event.preventDefault();
+      catalogPrevPage();
+    } else if (event.key === "Escape" && catalogStage.dataset.state === "open") {
+      event.preventDefault();
+      closeCatalog();
+    }
+  });
+
+  let catalogResizeTimer = 0;
+  window.addEventListener("resize", () => {
+    window.clearTimeout(catalogResizeTimer);
+    catalogResizeTimer = window.setTimeout(() => {
+      if (!catalogFlip) return;
+      const orientation = catalogFlip.getOrientation();
+      if (orientation !== catalogStage.dataset.orientation) {
+        catalogStage.dataset.orientation = orientation;
+        syncCatalogUI();
+      }
+    }, 160);
+  });
+
+  if ("IntersectionObserver" in window) {
+    catalogObserver = new IntersectionObserver(
+      (entries) => {
+        if (entries.some((entry) => entry.isIntersecting)) {
+          catalogObserver.disconnect();
+          catalogObserver = null;
+          initCatalog();
+        }
+      },
+      { rootMargin: "300px 0px" }
+    );
+    catalogObserver.observe(catalogStage);
+  } else {
+    initCatalog();
+  }
+}

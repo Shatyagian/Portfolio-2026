@@ -7,12 +7,14 @@ Folder ini berisi source situs versi baru. Semua file statis — tidak butuh bui
 ```
 index.html                      halaman utama
 styles.css                      seluruh styling (design system Editorial Light)
-app.js                          filter project, dialog case study, menu mobile, reveal
-assets/images/                  20 gambar .webp (tidak diubah dari versi lama)
+app.js                          filter project, dialog case study, menu mobile, reveal, katalog interaktif
+assets/images/                  21 gambar .webp
+assets/catalog/                 12 halaman katalog (webp, 1130×1598)
 assets/fonts/                   Instrument Serif + Inter Tight (self-host, WOFF2)
-assets/documents/               CV PDF
+assets/documents/               CV PDF + katalog PDF (versi unduh, 1,9 MB)
+assets/vendor/                  page-flip 2.0.7 (library buku interaktif, lokal)
 shatya-gian-portfolio-2026-deploy.zip   paket siap upload (tanpa folder _original)
-_original/                      backup versi lama (jangan diupload)
+_original/                      backup versi lama + PDF katalog asli (jangan diupload)
 ```
 
 ## Preview lokal
@@ -85,6 +87,7 @@ Catatan: drop tanpa akun menghasilkan link yang masih terproteksi password sampa
 - Font: League Spartan + Quicksand → Instrument Serif + Inter Tight
 - Layout: nomor section jadi rail sticky di kiri, hero asimetris, kartu project tanpa kotak gelap, filter jadi tab underline, timeline jadi tabel, contact jadi panel terakota
 - Radius 1.15rem → 2px, shadow diminimalkan, tambah pola garis & bidang aksen
+- Section baru **03 Catalog** (setelah Profile): katalog digital implant 12 halaman yang bisa dibuka, dibalik, dan diunduh sebagai PDF
 
 ## Aksesibilitas & performa
 
@@ -92,8 +95,8 @@ Catatan: drop tanpa akun menghasilkan link yang masih terproteksi password sampa
 - Tap target minimum 44px
 - `prefers-reduced-motion` didukung
 - Semua gambar punya `width`/`height` dan `alt`
-- Tidak ada request eksternal — font & gambar lokal semua
-- Total aset ±2,6 MB
+- Tidak ada request eksternal — font, gambar, dan library lokal semua
+- Total aset ±5,5 MB (termasuk katalog 12 halaman + PDF unduhan)
 
 ## Rollback
 
