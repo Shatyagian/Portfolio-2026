@@ -705,6 +705,16 @@ section[id] {
   font-size: 0.95rem;
 }
 
+.section-heading__body {
+  max-width: 34rem;
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+.section-heading__body p + p {
+  margin-top: 1rem;
+}
+
 /* --------------------------------------------------------------------------
    Profile
    -------------------------------------------------------------------------- */
