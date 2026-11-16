@@ -1,4 +1,5 @@
 _original/
+assets/video/vid*.mp4
 *.zip
 .git/
 .gitignore

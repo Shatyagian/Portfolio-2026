@@ -117,6 +117,33 @@ const projects = {
       ["assets/images/img-057.webp", "Instagram content performance comparison infographic"],
       ["assets/images/img-059.webp", "Recent Instagram content analytics feed"]
     ]
+  },
+  recap1: {
+    meta: "Video recap · 2026",
+    title: "Video Recap 01",
+    description: "A vertical recap video for social media, from documentation through editing and delivery.",
+    video: {
+      src: "assets/video/recap-01.mp4",
+      poster: "assets/video/recap-01-poster.webp"
+    }
+  },
+  recap2: {
+    meta: "Video recap · 2026",
+    title: "Video Recap 02",
+    description: "A vertical recap video for social media, from documentation through editing and delivery.",
+    video: {
+      src: "assets/video/recap-02.mp4",
+      poster: "assets/video/recap-02-poster.webp"
+    }
+  },
+  recap3: {
+    meta: "Video recap · 2026",
+    title: "Video Recap 03",
+    description: "A vertical recap video for social media, from documentation through editing and delivery.",
+    video: {
+      src: "assets/video/recap-03.mp4",
+      poster: "assets/video/recap-03-poster.webp"
+    }
   }
 };
 
@@ -248,13 +275,18 @@ function openProject(key, opener) {
   dialogList.replaceChildren();
   dialogGallery.replaceChildren();
 
-  project.points.forEach((point) => {
+  const points = project.points || [];
+  const images = project.images || [];
+
+  dialogList.hidden = points.length === 0;
+
+  points.forEach((point) => {
     const item = document.createElement("li");
     item.textContent = point;
     dialogList.append(item);
   });
 
-  project.images.forEach(([src, alt]) => {
+  images.forEach(([src, alt]) => {
     const figure = document.createElement("figure");
     const image = document.createElement("img");
     image.src = src;
@@ -264,9 +296,28 @@ function openProject(key, opener) {
     dialogGallery.append(figure);
   });
 
+  if (project.video) {
+    const figure = document.createElement("figure");
+    figure.className = "dialog-video";
+    const video = document.createElement("video");
+    video.controls = true;
+    video.playsInline = true;
+    video.preload = "metadata";
+    video.poster = project.video.poster;
+    video.src = project.video.src;
+    video.setAttribute("aria-label", project.title);
+    figure.append(video);
+    dialogGallery.append(figure);
+  }
+
   body.style.overflow = "hidden";
   if (typeof dialog.showModal === "function") dialog.showModal();
   else dialog.setAttribute("open", "");
+
+  if (project.video) {
+    const attempt = dialogGallery.querySelector("video")?.play();
+    if (attempt && typeof attempt.catch === "function") attempt.catch(() => {});
+  }
 }
 
 document.querySelectorAll("[data-project]").forEach((button) => {
@@ -286,6 +337,8 @@ dialog?.addEventListener("click", (event) => {
 
 dialog?.addEventListener("close", () => {
   body.style.removeProperty("overflow");
+  dialogGallery?.querySelectorAll("video").forEach((video) => video.pause());
+  dialogGallery?.replaceChildren();
   dialogOpener?.focus();
   dialogOpener = null;
 });

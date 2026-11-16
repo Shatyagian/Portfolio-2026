@@ -2,6 +2,9 @@
 _original/
 *.zip
 
+# Video sumber (331 MB) — versi web ada di assets/video/recap-*.mp4
+assets/video/vid*.mp4
+
 # File sistem
 Thumbs.db
 .DS_Store

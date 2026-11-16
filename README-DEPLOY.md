@@ -7,11 +7,12 @@ Folder ini berisi source situs versi baru. Semua file statis — tidak butuh bui
 ```
 index.html                      halaman utama
 styles.css                      seluruh styling (design system Editorial Light)
-app.js                          filter project, dialog case study, menu mobile, reveal, katalog interaktif
+app.js                          filter project, dialog case study + player video, menu mobile, reveal, katalog interaktif
 assets/images/                  21 gambar .webp
 assets/catalog/                 12 halaman katalog (webp, 1130×1598)
 assets/fonts/                   Instrument Serif + Inter Tight (self-host, WOFF2)
 assets/documents/               CV PDF + katalog PDF (versi unduh, 1,9 MB)
+assets/video/                   3 video recap (mp4 720×1280, ±8,5 MB) + poster webp
 assets/vendor/                  page-flip 2.0.7 (library buku interaktif, lokal)
 shatya-gian-portfolio-2026-deploy.zip   paket siap upload (tanpa folder _original)
 _original/                      backup versi lama + PDF katalog asli (jangan diupload)
@@ -87,7 +88,9 @@ Catatan: drop tanpa akun menghasilkan link yang masih terproteksi password sampa
 - Font: League Spartan + Quicksand → Instrument Serif + Inter Tight
 - Layout: nomor section jadi rail sticky di kiri, hero asimetris, kartu project tanpa kotak gelap, filter jadi tab underline, timeline jadi tabel, contact jadi panel terakota
 - Radius 1.15rem → 2px, shadow diminimalkan, tambah pola garis & bidang aksen
-- Section baru **03 Catalog** (setelah Profile): katalog digital implant 12 halaman yang bisa dibuka, dibalik, dan diunduh sebagai PDF
+- Section baru **03 What I Do / Expertise** (setelah Profile): 4 kategori keahlian dengan 24 poin
+- Section **04 Catalog**: katalog digital implant 12 halaman yang bisa dibuka, dibalik, dan diunduh sebagai PDF
+- Kartu **09 Video Recap** di Selected Work: 3 video vertikal 720×1280 dengan player di dialog
 
 ## Aksesibilitas & performa
 
@@ -96,7 +99,8 @@ Catatan: drop tanpa akun menghasilkan link yang masih terproteksi password sampa
 - `prefers-reduced-motion` didukung
 - Semua gambar punya `width`/`height` dan `alt`
 - Tidak ada request eksternal — font, gambar, dan library lokal semua
-- Total aset ±5,5 MB (termasuk katalog 12 halaman + PDF unduhan)
+- Total aset ±33 MB (termasuk 3 video recap 720p + katalog 12 halaman + PDF unduhan)
+- File video asli (`assets/video/vid*.mp4`) tidak ikut deploy; hanya versi web yang diunggah
 
 ## Rollback
 

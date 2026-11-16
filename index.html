@@ -15,9 +15,9 @@
   <link rel="preload" href="assets/fonts/instrument-serif-italic.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="assets/fonts/inter-tight.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="assets/images/img-001.webp?v=2" as="image" type="image/webp">
-  <link rel="stylesheet" href="styles.css?v=4">
+  <link rel="stylesheet" href="styles.css?v=5">
   <script src="assets/vendor/page-flip.browser.js" defer></script>
-  <script src="app.js?v=3" defer></script>
+  <script src="app.js?v=5" defer></script>
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
@@ -261,8 +261,9 @@
               <button type="button" class="filter" data-filter="design" aria-pressed="false">Design</button>
               <button type="button" class="filter" data-filter="motion" aria-pressed="false">Motion</button>
               <button type="button" class="filter" data-filter="system" aria-pressed="false">System</button>
+              <button type="button" class="filter" data-filter="recap" aria-pressed="false">Video recap</button>
             </div>
-            <p class="project-count"><span data-project-count>8</span> projects</p>
+            <p class="project-count"><span data-project-count>9</span> projects</p>
           </div>
           <p class="sr-only" aria-live="polite" data-filter-status></p>
 
@@ -413,6 +414,36 @@
                   <p class="project-desc">Analysis of 40 Instagram posts, visualizing the shift from a 482-view sample average to 23,010 views per post.</p>
                 </div>
                 <button class="project-open" type="button" data-project="performance">View case <span aria-hidden="true">↗</span><span class="sr-only">: Content Performance</span></button>
+              </div>
+            </article>
+
+            <article class="project-card project-card--wide reveal" data-category="recap" data-project-card>
+              <div class="project-visual visual-recap">
+                <button class="recap-shot" type="button" data-project="recap1" aria-label="Play Video Recap 01">
+                  <img src="assets/video/recap-01-poster.webp" alt="Cover of Video Recap 01" width="720" height="1280" loading="lazy">
+                  <span class="recap-shot__index" aria-hidden="true">01</span>
+                  <span class="recap-shot__play" aria-hidden="true"></span>
+                </button>
+                <button class="recap-shot" type="button" data-project="recap2" aria-label="Play Video Recap 02">
+                  <img src="assets/video/recap-02-poster.webp" alt="Cover of Video Recap 02" width="720" height="1280" loading="lazy">
+                  <span class="recap-shot__index" aria-hidden="true">02</span>
+                  <span class="recap-shot__play" aria-hidden="true"></span>
+                </button>
+                <button class="recap-shot" type="button" data-project="recap3" aria-label="Play Video Recap 03">
+                  <img src="assets/video/recap-03-poster.webp" alt="Cover of Video Recap 03" width="720" height="1280" loading="lazy">
+                  <span class="recap-shot__index" aria-hidden="true">03</span>
+                  <span class="recap-shot__play" aria-hidden="true"></span>
+                </button>
+              </div>
+              <div class="project-info">
+                <p class="project-meta"><span>09 / Video recap</span><span>2026</span></p>
+                <div class="project-copy">
+                  <div class="project-title">
+                    <p class="project-type">Video · Documentation · Editing</p>
+                    <h3>Video Recap</h3>
+                  </div>
+                  <p class="project-desc">Three vertical recap videos turning event moments and campaign output into short stories for social media.</p>
+                </div>
               </div>
             </article>
           </div>
