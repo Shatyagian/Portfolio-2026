@@ -1198,6 +1198,124 @@ section[id] {
   text-underline-offset: 3px;
 }
 
+.catalog-zoom-open {
+  display: none;
+}
+
+/* Full-size page viewer */
+
+.catalog-zoom {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  max-width: none;
+  height: 100%;
+  max-height: none;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: var(--bg);
+  color: var(--ink);
+}
+
+.catalog-zoom::backdrop {
+  background: rgba(21, 18, 15, 0.55);
+}
+
+.catalog-zoom__shell {
+  display: grid;
+  grid-template-rows: auto minmax(0, 1fr) auto;
+  height: 100%;
+  gap: 0.6rem;
+  padding:
+    max(0.8rem, env(safe-area-inset-top))
+    0.9rem
+    max(0.8rem, env(safe-area-inset-bottom));
+}
+
+.catalog-zoom__bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding-bottom: 0.55rem;
+  border-bottom: 1px solid var(--line);
+}
+
+.catalog-zoom__title,
+.catalog-zoom__hint {
+  color: var(--muted);
+  font-size: 0.64rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  line-height: 1.4;
+  text-transform: uppercase;
+}
+
+.catalog-zoom__tools {
+  display: flex;
+  align-items: center;
+  gap: 1.1rem;
+}
+
+.catalog-zoom__tool {
+  display: inline-flex;
+  min-height: 44px;
+  align-items: center;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: var(--ink);
+  font-family: inherit;
+  font-size: 0.64rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: color 180ms ease;
+}
+
+.catalog-zoom__tool:hover,
+.catalog-zoom__tool[aria-pressed="true"] {
+  color: var(--accent);
+}
+
+.catalog-zoom__viewport {
+  display: block;
+  overflow: auto;
+  overscroll-behavior: contain;
+  -webkit-overflow-scrolling: touch;
+  border-radius: var(--radius);
+  background: var(--surface-2);
+}
+
+.catalog-zoom__viewport img {
+  display: block;
+  width: 100%;
+  max-width: 1130px;
+  height: auto;
+  margin: 0 auto;
+}
+
+.catalog-zoom__viewport.is-zoomed img {
+  width: 1130px;
+  max-width: none;
+  margin: 0;
+}
+
+.catalog-zoom__nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding-top: 0.55rem;
+  border-top: 1px solid var(--line);
+}
+
+.catalog-zoom__hint {
+  text-align: center;
+}
+
 @media (max-width: 600px) {
   .catalog-toolbar {
     justify-content: center;
@@ -1214,6 +1332,42 @@ section[id] {
 
   .catalog-note {
     text-align: center;
+  }
+
+  .catalog-zoom-open {
+    display: inline-flex;
+  }
+
+  /* Keep the closed cover tall on phones; the two-page book sits centered inside. */
+  .catalog-stage,
+  .catalog-stage[data-orientation="landscape"] {
+    aspect-ratio: 500 / 707;
+  }
+
+  .catalog-stage::after {
+    display: none;
+  }
+
+  .catalog-stage[data-orientation="landscape"] .catalog-cover {
+    left: 0;
+    width: 100%;
+    translate: 0 0;
+  }
+
+  .catalog-stage .catalog-book-wrap {
+    height: 100%;
+    display: flex;
+    align-items: center;
+  }
+
+  .catalog-stage[data-state="opening"] .catalog-book-wrap {
+    clip-path: none;
+    transform: rotateY(-8deg) scale(0.986);
+  }
+
+  .catalog-stage[data-state="opening"].is-revealing .catalog-book-wrap {
+    clip-path: none;
+    transform: rotateY(0) scale(1);
   }
 }
 
