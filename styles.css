@@ -1372,6 +1372,66 @@ section[id] {
 }
 
 /* --------------------------------------------------------------------------
+   Expertise
+   -------------------------------------------------------------------------- */
+
+.expertise-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(2.2rem, 4vw, 3.4rem) clamp(1.6rem, 4vw, 4rem);
+  margin-top: clamp(2.6rem, 5vw, 4rem);
+}
+
+.expertise-item {
+  padding-top: 1.1rem;
+  border-top: 1px solid var(--line-strong);
+}
+
+.expertise-item__index {
+  color: var(--accent);
+  font-size: 0.68rem;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.16em;
+  line-height: 1;
+}
+
+.expertise-item h3 {
+  margin-top: 0.55rem;
+  font-family: var(--body);
+  font-size: clamp(1.05rem, 1.7vw, 1.3rem);
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  line-height: 1.25;
+}
+
+.expertise-item ul {
+  display: grid;
+  gap: 0.4rem;
+  margin-top: 1.05rem;
+  color: var(--muted);
+  font-size: 0.92rem;
+  line-height: 1.45;
+}
+
+.expertise-item li {
+  display: grid;
+  grid-template-columns: 1rem minmax(0, 1fr);
+  gap: 0.1rem;
+}
+
+.expertise-item li::before {
+  color: var(--line-strong);
+  content: "—";
+}
+
+@media (max-width: 600px) {
+  .expertise-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+/* --------------------------------------------------------------------------
    Work
    -------------------------------------------------------------------------- */
 
