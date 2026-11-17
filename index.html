@@ -15,9 +15,9 @@
   <link rel="preload" href="assets/fonts/instrument-serif-italic.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="assets/fonts/inter-tight.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="assets/images/img-001.webp?v=2" as="image" type="image/webp">
-  <link rel="stylesheet" href="styles.css?v=5">
+  <link rel="stylesheet" href="styles.css?v=7">
   <script src="assets/vendor/page-flip.browser.js" defer></script>
-  <script src="app.js?v=5" defer></script>
+  <script src="app.js?v=7" defer></script>
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
@@ -262,8 +262,9 @@
               <button type="button" class="filter" data-filter="motion" aria-pressed="false">Motion</button>
               <button type="button" class="filter" data-filter="system" aria-pressed="false">System</button>
               <button type="button" class="filter" data-filter="recap" aria-pressed="false">Video recap</button>
+              <button type="button" class="filter" data-filter="teaser" aria-pressed="false">Teaser</button>
             </div>
-            <p class="project-count"><span data-project-count>9</span> projects</p>
+            <p class="project-count"><span data-project-count>10</span> projects</p>
           </div>
           <p class="sr-only" aria-live="polite" data-filter-status></p>
 
@@ -298,6 +299,26 @@
               </div>
             </article>
 
+            <article class="project-card project-card--wide reveal" data-category="teaser" data-project-card>
+              <div class="project-visual visual-teaser">
+                <button class="teaser-shot" type="button" data-project="teaser" aria-label="Play TEASER PRESIMPOSIUM">
+                  <img src="assets/video/teaser-presimposium-poster.webp" alt="Cover of TEASER PRESIMPOSIUM" width="1280" height="720" loading="lazy">
+                  <span class="teaser-shot__label" aria-hidden="true">TEASER<br>PRESIMPOSIUM</span>
+                  <span class="teaser-shot__play" aria-hidden="true"></span>
+                </button>
+              </div>
+              <div class="project-info">
+                <p class="project-meta"><span>02 / Teaser Presimposium</span><span>2026</span></p>
+                <div class="project-copy">
+                  <div class="project-title">
+                    <p class="project-type">Video · Teaser · Editing</p>
+                    <h3>Teaser Presimposium</h3>
+                  </div>
+                  <p class="project-desc">A short cinematic teaser introducing Presimposium, cut for social media announcement.</p>
+                </div>
+              </div>
+            </article>
+
             <article class="project-card project-card--wide reveal" data-category="campaign motion" data-project-card>
               <div class="project-visual visual-isid">
                 <img class="visual-isid__people" src="assets/images/img-005.webp" alt="Field Marketing team at ISID 2026" width="899" height="1599" loading="lazy">
@@ -305,7 +326,7 @@
                 <span class="project-visual__stamp" aria-hidden="true">ISID<br>2026</span>
               </div>
               <div class="project-info">
-                <p class="project-meta"><span>02 / Event direction</span><span>2026</span></p>
+                <p class="project-meta"><span>03 / Event direction</span><span>2026</span></p>
                 <div class="project-copy">
                   <div class="project-title">
                     <p class="project-type">Event · Creative direction · Documentation</p>
@@ -313,7 +334,25 @@
                   </div>
                   <p class="project-desc">Creative concepts, promotional strategy, photography, videography, and interview coverage for a major implant dentistry symposium.</p>
                 </div>
-                <button class="project-open" type="button" data-project="isid">View case <span aria-hidden="true">↗</span><span class="sr-only">: Event ISID 2026</span></button>
+                <div class="project-detail">
+                  <ul class="project-points">
+                    <li>Developed creative concepts and supported event execution.</li>
+                    <li>Planned visual content, photography, videography, and interview sessions.</li>
+                    <li>Worked as team leader with Field Marketing on creative execution and project delivery.</li>
+                    <li>Created awareness materials for the upcoming Presymposium 2027.</li>
+                  </ul>
+                  <div class="project-gallery">
+                    <button class="gallery-shot" type="button" data-zoom="assets/images/img-005.webp" data-zoom-alt="Field Marketing team at ISID 2026" aria-label="Zoom: Field Marketing team at ISID 2026">
+                      <img src="assets/images/img-005.webp" alt="Field Marketing team at ISID 2026" width="899" height="1599" loading="lazy" decoding="async">
+                    </button>
+                    <button class="gallery-shot" type="button" data-zoom="assets/images/img-006.webp" data-zoom-alt="3D booth planning workspace for ISID 2026" aria-label="Zoom: 3D booth planning workspace for ISID 2026">
+                      <img src="assets/images/img-006.webp" alt="3D booth planning workspace for ISID 2026" width="1152" height="648" loading="lazy" decoding="async">
+                    </button>
+                    <button class="gallery-shot" type="button" data-zoom="assets/images/img-037.webp" data-zoom-alt="Clinical documentation from Presymposium preparation" aria-label="Zoom: Clinical documentation from Presymposium preparation">
+                      <img src="assets/images/img-037.webp" alt="Clinical documentation from Presymposium preparation" width="835" height="469" loading="lazy" decoding="async">
+                    </button>
+                  </div>
+                </div>
               </div>
             </article>
 
@@ -322,7 +361,7 @@
                 <img src="assets/images/img-012.webp" alt="A selection of HammerHead marketplace campaign designs" width="1920" height="1080" loading="lazy">
               </div>
               <div class="project-info">
-                <p class="project-meta"><span>03 / E-commerce</span><span>2025</span></p>
+                <p class="project-meta"><span>04 / E-commerce</span><span>2025</span></p>
                 <div class="project-copy">
                   <div class="project-title">
                     <p class="project-type">Marketplace · Graphic design</p>
@@ -330,7 +369,21 @@
                   </div>
                   <p class="project-desc">Promotional visuals made for Shopee, Lazada, TikTok Shop, Tokopedia, and live-shopping moments.</p>
                 </div>
-                <button class="project-open" type="button" data-project="marketplace">View case <span aria-hidden="true">↗</span><span class="sr-only">: Marketplace Visual</span></button>
+                <div class="project-detail">
+                  <ul class="project-points">
+                    <li>Created assets for Shopee, Lazada, TikTok Shop, and Tokopedia.</li>
+                    <li>Designed graphics for TikTok Live and Shopee Live promotions.</li>
+                    <li>Supported a consistent and attention-grabbing HammerHead visual presence.</li>
+                  </ul>
+                  <div class="project-gallery">
+                    <button class="gallery-shot" type="button" data-zoom="assets/images/img-012.webp" data-zoom-alt="Three HammerHead promotional marketplace designs" aria-label="Zoom: Three HammerHead promotional marketplace designs">
+                      <img src="assets/images/img-012.webp" alt="Three HammerHead promotional marketplace designs" width="1600" height="900" loading="lazy" decoding="async">
+                    </button>
+                    <button class="gallery-shot" type="button" data-zoom="assets/images/img-009.webp" data-zoom-alt="Soft Bait marketplace campaign artwork" aria-label="Zoom: Soft Bait marketplace campaign artwork">
+                      <img src="assets/images/img-009.webp" alt="Soft Bait marketplace campaign artwork" width="960" height="540" loading="lazy" decoding="async">
+                    </button>
+                  </div>
+                </div>
               </div>
             </article>
 
@@ -341,7 +394,7 @@
                 <img class="visual-print__cards" src="assets/images/img-026.webp" alt="Printed event cards on a dark background" width="1152" height="648" loading="lazy">
               </div>
               <div class="project-info">
-                <p class="project-meta"><span>04 / Print</span><span>2026</span></p>
+                <p class="project-meta"><span>05 / Print</span><span>2026</span></p>
                 <div class="project-copy">
                   <div class="project-title">
                     <p class="project-type">Collateral · Print design</p>
@@ -349,7 +402,24 @@
                   </div>
                   <p class="project-desc">Brochures, banners, cards, and physical brand touchpoints designed for professional dental audiences.</p>
                 </div>
-                <button class="project-open" type="button" data-project="print">View case <span aria-hidden="true">↗</span><span class="sr-only">: Visual Cetak</span></button>
+                <div class="project-detail">
+                  <ul class="project-points">
+                    <li>Designed brochures, cards, catalog materials, and roll-up banners.</li>
+                    <li>Balanced professional dental information with a consistent visual system.</li>
+                    <li>Prepared visual assets for use across event environments.</li>
+                  </ul>
+                  <div class="project-gallery">
+                    <button class="gallery-shot" type="button" data-zoom="assets/images/img-016.webp" data-zoom-alt="Dental implant printed materials and event banner" aria-label="Zoom: Dental implant printed materials and event banner">
+                      <img src="assets/images/img-016.webp" alt="Dental implant printed materials and event banner" width="1536" height="864" loading="lazy" decoding="async">
+                    </button>
+                    <button class="gallery-shot" type="button" data-zoom="assets/images/img-020.webp" data-zoom-alt="Dental implant roll-up banner set" aria-label="Zoom: Dental implant roll-up banner set">
+                      <img src="assets/images/img-020.webp" alt="Dental implant roll-up banner set" width="1600" height="900" loading="lazy" decoding="async">
+                    </button>
+                    <button class="gallery-shot" type="button" data-zoom="assets/images/img-026.webp" data-zoom-alt="Printed event cards" aria-label="Zoom: Printed event cards">
+                      <img src="assets/images/img-026.webp" alt="Printed event cards" width="1152" height="648" loading="lazy" decoding="async">
+                    </button>
+                  </div>
+                </div>
               </div>
             </article>
 
@@ -360,7 +430,7 @@
                 <span aria-hidden="true" class="visual-booth__word">SPACE</span>
               </div>
               <div class="project-info">
-                <p class="project-meta"><span>05 / Experience</span><span>2026</span></p>
+                <p class="project-meta"><span>06 / Experience</span><span>2026</span></p>
                 <div class="project-copy">
                   <div class="project-title">
                     <p class="project-type">Spatial · Event experience</p>
@@ -368,7 +438,21 @@
                   </div>
                   <p class="project-desc">A complete visitor experience—from layout and installation to interviews, activities, event flow, and souvenirs.</p>
                 </div>
-                <button class="project-open" type="button" data-project="booth">View case <span aria-hidden="true">↗</span><span class="sr-only">: Booth Concept</span></button>
+                <div class="project-detail">
+                  <ul class="project-points">
+                    <li>Conceptualized the visual layout, wall banners, and booth installation.</li>
+                    <li>Planned interactive activities, interview setups, event flow, and souvenir distribution.</li>
+                    <li>Aligned every visitor touchpoint with the wider brand presentation.</li>
+                  </ul>
+                  <div class="project-gallery">
+                    <button class="gallery-shot" type="button" data-zoom="assets/images/img-032.webp" data-zoom-alt="Completed booth installation" aria-label="Zoom: Completed booth installation">
+                      <img src="assets/images/img-032.webp" alt="Completed booth installation" width="578" height="1280" loading="lazy" decoding="async">
+                    </button>
+                    <button class="gallery-shot" type="button" data-zoom="assets/images/img-033.webp" data-zoom-alt="Booth concept in a 3D design workspace" aria-label="Zoom: Booth concept in a 3D design workspace">
+                      <img src="assets/images/img-033.webp" alt="Booth concept in a 3D design workspace" width="960" height="467" loading="lazy" decoding="async">
+                    </button>
+                  </div>
+                </div>
               </div>
             </article>
 
@@ -379,7 +463,7 @@
                 <span class="visual-ai__badge" aria-hidden="true">AI<br>+ ART</span>
               </div>
               <div class="project-info">
-                <p class="project-meta"><span>06 / AI-assisted motion</span><span>2026</span></p>
+                <p class="project-meta"><span>07 / AI-assisted motion</span><span>2026</span></p>
                 <div class="project-copy">
                   <div class="project-title">
                     <p class="project-type">Concept · Storytelling · Production</p>
@@ -387,7 +471,21 @@
                   </div>
                   <p class="project-desc">An AI-generated promotional asset shaped through concept development, visual storytelling, and creative direction.</p>
                 </div>
-                <button class="project-open" type="button" data-project="ai">View case <span aria-hidden="true">↗</span><span class="sr-only">: AI Promotion Video</span></button>
+                <div class="project-detail">
+                  <ul class="project-points">
+                    <li>Led concept development and creative direction.</li>
+                    <li>Built the story through AI-assisted visual production.</li>
+                    <li>Shaped the final asset around clear brand and promotional messaging.</li>
+                  </ul>
+                  <div class="project-gallery">
+                    <button class="gallery-shot" type="button" data-zoom="assets/images/img-043.webp" data-zoom-alt="Hari Kesaktian Pancasila promotional visual" aria-label="Zoom: Hari Kesaktian Pancasila promotional visual">
+                      <img src="assets/images/img-043.webp" alt="Hari Kesaktian Pancasila promotional visual" width="648" height="1152" loading="lazy" decoding="async">
+                    </button>
+                    <button class="gallery-shot" type="button" data-zoom="assets/images/img-045.webp" data-zoom-alt="Scene from a Dentis Implant promotional video" aria-label="Zoom: Scene from a Dentis Implant promotional video">
+                      <img src="assets/images/img-045.webp" alt="Scene from a Dentis Implant promotional video" width="578" height="1280" loading="lazy" decoding="async">
+                    </button>
+                  </div>
+                </div>
               </div>
             </article>
 
@@ -398,7 +496,7 @@
                 <img src="assets/images/img-050.webp" alt="Instagram response automation on a mobile interface" width="376" height="653" loading="lazy">
               </div>
               <div class="project-info">
-                <p class="project-meta"><span>07 / Customer journey</span><span>2026</span></p>
+                <p class="project-meta"><span>08 / Customer journey</span><span>2026</span></p>
                 <div class="project-copy">
                   <div class="project-title">
                     <p class="project-type">Instagram · Automation</p>
@@ -406,7 +504,24 @@
                   </div>
                   <p class="project-desc">A faster inquiry flow connecting comments and direct messages to personalized replies and the official WhatsApp channel.</p>
                 </div>
-                <button class="project-open" type="button" data-project="automation">View case <span aria-hidden="true">↗</span><span class="sr-only">: Automation Chat</span></button>
+                <div class="project-detail">
+                  <ul class="project-points">
+                    <li>Automated responses to direct messages and comments.</li>
+                    <li>Redirected inquiries to the official WhatsApp channel.</li>
+                    <li>Sent personalized welcome messages to new followers, especially dental professionals.</li>
+                  </ul>
+                  <div class="project-gallery">
+                    <button class="gallery-shot" type="button" data-zoom="assets/images/img-046.webp" data-zoom-alt="Automated Instagram direct-message response" aria-label="Zoom: Automated Instagram direct-message response">
+                      <img src="assets/images/img-046.webp" alt="Automated Instagram direct-message response" width="373" height="656" loading="lazy" decoding="async">
+                    </button>
+                    <button class="gallery-shot" type="button" data-zoom="assets/images/img-048.webp" data-zoom-alt="Instagram welcome-message automation" aria-label="Zoom: Instagram welcome-message automation">
+                      <img src="assets/images/img-048.webp" alt="Instagram welcome-message automation" width="357" height="655" loading="lazy" decoding="async">
+                    </button>
+                    <button class="gallery-shot" type="button" data-zoom="assets/images/img-050.webp" data-zoom-alt="Instagram response flow on mobile" aria-label="Zoom: Instagram response flow on mobile">
+                      <img src="assets/images/img-050.webp" alt="Instagram response flow on mobile" width="376" height="653" loading="lazy" decoding="async">
+                    </button>
+                  </div>
+                </div>
               </div>
             </article>
 
@@ -416,7 +531,7 @@
                 <img class="visual-film__stills" src="assets/images/img-054.webp" alt="Behind-the-scenes stills from a film production" width="540" height="960" loading="lazy">
               </div>
               <div class="project-info">
-                <p class="project-meta"><span>08 / Film production</span><span>2022</span></p>
+                <p class="project-meta"><span>09 / Film production</span><span>2022</span></p>
                 <div class="project-copy">
                   <div class="project-title">
                     <p class="project-type">Camera · Production</p>
@@ -424,7 +539,21 @@
                   </div>
                   <p class="project-desc">Camera setup and shot preparation focused on framing, movement, emotion, and close collaboration with the director and crew.</p>
                 </div>
-                <button class="project-open" type="button" data-project="film">View case <span aria-hidden="true">↗</span><span class="sr-only">: Film Assistant</span></button>
+                <div class="project-detail">
+                  <ul class="project-points">
+                    <li>Supported camera setup and shot preparation.</li>
+                    <li>Considered framing, camera angles, movement, and character placement.</li>
+                    <li>Worked with the director and crew to capture the intended visual tone.</li>
+                  </ul>
+                  <div class="project-gallery">
+                    <button class="gallery-shot" type="button" data-zoom="assets/images/img-052.webp" data-zoom-alt="Poster for the short film Terjerat" aria-label="Zoom: Poster for the short film Terjerat">
+                      <img src="assets/images/img-052.webp" alt="Poster for the short film Terjerat" width="756" height="945" loading="lazy" decoding="async">
+                    </button>
+                    <button class="gallery-shot" type="button" data-zoom="assets/images/img-054.webp" data-zoom-alt="Behind-the-scenes stills from film production" aria-label="Zoom: Behind-the-scenes stills from film production">
+                      <img src="assets/images/img-054.webp" alt="Behind-the-scenes stills from film production" width="540" height="960" loading="lazy" decoding="async">
+                    </button>
+                  </div>
+                </div>
               </div>
             </article>
 
@@ -435,7 +564,7 @@
                 <div class="visual-performance__number" aria-hidden="true"><strong>47.7×</strong><span>average views</span></div>
               </div>
               <div class="project-info">
-                <p class="project-meta"><span>09 / Content analytics</span><span>2026</span></p>
+                <p class="project-meta"><span>10 / Content analytics</span><span>2026</span></p>
                 <div class="project-copy">
                   <div class="project-title">
                     <p class="project-type">Analysis · Social content</p>
@@ -443,7 +572,22 @@
                   </div>
                   <p class="project-desc">Analysis of 40 Instagram posts, visualizing the shift from a 482-view sample average to 23,010 views per post.</p>
                 </div>
-                <button class="project-open" type="button" data-project="performance">View case <span aria-hidden="true">↗</span><span class="sr-only">: Content Performance</span></button>
+                <div class="project-detail">
+                  <ul class="project-points">
+                    <li>Recent sample average: 23,010 views per post.</li>
+                    <li>Earlier sample average: 482 views per post.</li>
+                    <li>Peak post: 149,700 views; recent total: 460,190 views.</li>
+                    <li>Average-view increase: approximately 47.7×.</li>
+                  </ul>
+                  <div class="project-gallery">
+                    <button class="gallery-shot" type="button" data-zoom="assets/images/img-057.webp" data-zoom-alt="Instagram content performance comparison infographic" aria-label="Zoom: Instagram content performance comparison infographic">
+                      <img src="assets/images/img-057.webp" alt="Instagram content performance comparison infographic" width="1122" height="1402" loading="lazy" decoding="async">
+                    </button>
+                    <button class="gallery-shot" type="button" data-zoom="assets/images/img-059.webp" data-zoom-alt="Recent Instagram content analytics feed" aria-label="Zoom: Recent Instagram content analytics feed">
+                      <img src="assets/images/img-059.webp" alt="Recent Instagram content analytics feed" width="434" height="960" loading="lazy" decoding="async">
+                    </button>
+                  </div>
+                </div>
               </div>
             </article>
           </div>
@@ -590,6 +734,16 @@
         <ul id="dialog-list"></ul>
       </div>
       <div class="dialog-gallery" id="dialog-gallery"></div>
+    </div>
+  </dialog>
+
+  <dialog class="zoom-dialog" id="zoom-dialog" aria-labelledby="zoom-dialog-caption">
+    <div class="zoom-dialog__shell">
+      <button class="zoom-dialog__close" type="button" aria-label="Close enlarged image">Close <span aria-hidden="true">x</span></button>
+      <figure class="zoom-dialog__figure">
+        <img id="zoom-dialog-image" alt="" decoding="async">
+        <figcaption id="zoom-dialog-caption"></figcaption>
+      </figure>
     </div>
   </dialog>
 </body>

@@ -1,123 +1,6 @@
 document.documentElement.classList.add("js");
 
 const projects = {
-  isid: {
-    meta: "Event direction · Documentation · 2026",
-    title: "Event ISID 2026",
-    description: "Creative development and on-site execution for the Indonesian Symposium of Implant Dentistry, combining event storytelling, promotional strategy, and documentation.",
-    points: [
-      "Developed creative concepts and supported event execution.",
-      "Planned visual content, photography, videography, and interview sessions.",
-      "Worked as team leader with Field Marketing on creative execution and project delivery.",
-      "Created awareness materials for the upcoming Presymposium 2027."
-    ],
-    images: [
-      ["assets/images/img-005.webp", "Field Marketing team at ISID 2026"],
-      ["assets/images/img-006.webp", "3D booth planning workspace for ISID 2026"],
-      ["assets/images/img-037.webp", "Clinical documentation from Presymposium preparation"]
-    ]
-  },
-  marketplace: {
-    meta: "E-commerce · Graphic design · 2025",
-    title: "Marketplace Visual",
-    description: "A set of bold sales visuals designed to make offers legible, energetic, and consistent across major marketplace and live-shopping platforms.",
-    points: [
-      "Created assets for Shopee, Lazada, TikTok Shop, and Tokopedia.",
-      "Designed graphics for TikTok Live and Shopee Live promotions.",
-      "Supported a consistent and attention-grabbing HammerHead visual presence."
-    ],
-    images: [
-      ["assets/images/img-012.webp", "Three HammerHead promotional marketplace designs"],
-      ["assets/images/img-009.webp", "Soft Bait marketplace campaign artwork"]
-    ]
-  },
-  print: {
-    meta: "Collateral · Print design · 2026",
-    title: "Visual Cetak",
-    description: "A family of printed touchpoints that translates detailed implant information into clear event and promotional materials.",
-    points: [
-      "Designed brochures, cards, catalog materials, and roll-up banners.",
-      "Balanced professional dental information with a consistent visual system.",
-      "Prepared visual assets for use across event environments."
-    ],
-    images: [
-      ["assets/images/img-016.webp", "Dental implant printed materials and event banner"],
-      ["assets/images/img-020.webp", "Dental implant roll-up banner set"],
-      ["assets/images/img-026.webp", "Printed event cards"]
-    ]
-  },
-  booth: {
-    meta: "Spatial · Event experience · 2026",
-    title: "Booth Concept",
-    description: "An end-to-end booth experience designed to turn brand objectives into a cohesive physical journey for dental professionals.",
-    points: [
-      "Conceptualized the visual layout, wall banners, and booth installation.",
-      "Planned interactive activities, interview setups, event flow, and souvenir distribution.",
-      "Aligned every visitor touchpoint with the wider brand presentation."
-    ],
-    images: [
-      ["assets/images/img-032.webp", "Completed booth installation"],
-      ["assets/images/img-033.webp", "Booth concept in a 3D design workspace"]
-    ]
-  },
-  ai: {
-    meta: "AI-assisted motion · Creative direction · 2026",
-    title: "AI Promotion Video",
-    description: "An AI-generated promotional video for Dentis Implant, developed to communicate product features and brand value as an engaging visual story.",
-    points: [
-      "Led concept development and creative direction.",
-      "Built the story through AI-assisted visual production.",
-      "Shaped the final asset around clear brand and promotional messaging."
-    ],
-    images: [
-      ["assets/images/img-043.webp", "Hari Kesaktian Pancasila promotional visual"],
-      ["assets/images/img-045.webp", "Scene from a Dentis Implant promotional video"]
-    ]
-  },
-  automation: {
-    meta: "Instagram · Customer journey · 2026",
-    title: "Automation Chat",
-    description: "An Instagram response system designed to make customer engagement and lead management faster and more consistent.",
-    points: [
-      "Automated responses to direct messages and comments.",
-      "Redirected inquiries to the official WhatsApp channel.",
-      "Sent personalized welcome messages to new followers, especially dental professionals."
-    ],
-    images: [
-      ["assets/images/img-046.webp", "Automated Instagram direct-message response"],
-      ["assets/images/img-048.webp", "Instagram welcome-message automation"],
-      ["assets/images/img-050.webp", "Instagram response flow on mobile"]
-    ]
-  },
-  film: {
-    meta: "Camera · Film production · 2022",
-    title: "Film Assistant",
-    description: "Camera and production support shaped around the intended mood of each scene, with attention to how framing and movement guide an audience.",
-    points: [
-      "Supported camera setup and shot preparation.",
-      "Considered framing, camera angles, movement, and character placement.",
-      "Worked with the director and crew to capture the intended visual tone."
-    ],
-    images: [
-      ["assets/images/img-052.webp", "Poster for the short film Terjerat"],
-      ["assets/images/img-054.webp", "Behind-the-scenes stills from film production"]
-    ]
-  },
-  performance: {
-    meta: "Content analysis · Social media · 2026",
-    title: "Content Performance",
-    description: "A visual analysis of 40 Instagram posts comparing an earlier sample with recent organic and promoted content.",
-    points: [
-      "Recent sample average: 23,010 views per post.",
-      "Earlier sample average: 482 views per post.",
-      "Peak post: 149,700 views; recent total: 460,190 views.",
-      "Average-view increase: approximately 47.7×."
-    ],
-    images: [
-      ["assets/images/img-057.webp", "Instagram content performance comparison infographic"],
-      ["assets/images/img-059.webp", "Recent Instagram content analytics feed"]
-    ]
-  },
   recap1: {
     meta: "Video recap · 2026",
     title: "Video Recap 01",
@@ -143,6 +26,15 @@ const projects = {
     video: {
       src: "assets/video/recap-03.mp4",
       poster: "assets/video/recap-03-poster.webp"
+    }
+  },
+  teaser: {
+    meta: "Teaser · Video · 2026",
+    title: "Teaser Presimposium",
+    description: "A short cinematic teaser introducing Presimposium, cut for social media announcement.",
+    video: {
+      src: "assets/video/teaser-presimposium.mp4",
+      poster: "assets/video/teaser-presimposium-poster.webp"
     }
   }
 };
@@ -303,6 +195,9 @@ function openProject(key, opener) {
     video.controls = true;
     video.playsInline = true;
     video.preload = "metadata";
+    video.disablePictureInPicture = true;
+    video.setAttribute("controlslist", "nodownload noplaybackrate noremoteplayback");
+    video.addEventListener("contextmenu", (event) => event.preventDefault());
     video.poster = project.video.poster;
     video.src = project.video.src;
     video.setAttribute("aria-label", project.title);
@@ -341,6 +236,44 @@ dialog?.addEventListener("close", () => {
   dialogGallery?.replaceChildren();
   dialogOpener?.focus();
   dialogOpener = null;
+});
+
+
+/* Image zoom ---------------------------------------------------------------- */
+
+const zoomDialog = document.querySelector("#zoom-dialog");
+const zoomImage = zoomDialog?.querySelector("#zoom-dialog-image");
+const zoomCaption = zoomDialog?.querySelector("#zoom-dialog-caption");
+const zoomClose = zoomDialog?.querySelector(".zoom-dialog__close");
+let zoomOpener = null;
+
+document.querySelectorAll("[data-zoom]").forEach((button) => {
+  button.addEventListener("click", () => {
+    if (!zoomDialog || !zoomImage) return;
+    zoomOpener = button;
+    const alt = button.dataset.zoomAlt || button.querySelector("img")?.alt || "";
+    zoomImage.src = button.dataset.zoom;
+    zoomImage.alt = alt;
+    if (zoomCaption) zoomCaption.textContent = alt;
+    body.style.overflow = "hidden";
+    if (typeof zoomDialog.showModal === "function") zoomDialog.showModal();
+    else zoomDialog.setAttribute("open", "");
+  });
+});
+
+zoomClose?.addEventListener("click", () => {
+  if (zoomDialog?.open) zoomDialog.close();
+});
+
+zoomDialog?.addEventListener("click", (event) => {
+  if (event.target === zoomDialog) zoomDialog.close();
+});
+
+zoomDialog?.addEventListener("close", () => {
+  body.style.removeProperty("overflow");
+  if (zoomImage) zoomImage.removeAttribute("src");
+  zoomOpener?.focus();
+  zoomOpener = null;
 });
 
 /* --------------------------------------------------------------------------
