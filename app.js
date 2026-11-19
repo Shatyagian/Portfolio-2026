@@ -1,6 +1,34 @@
 document.documentElement.classList.add("js");
 
+const digitalMotion = window.matchMedia("(hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference)");
+document.querySelectorAll(".gallery-shot").forEach((card) => {
+  card.addEventListener("pointermove", (event) => {
+    if (!digitalMotion.matches) return;
+    const bounds = card.getBoundingClientRect();
+    card.style.setProperty("--pointer-x", `${event.clientX - bounds.left}px`);
+    card.style.setProperty("--pointer-y", `${event.clientY - bounds.top}px`);
+  }, { passive: true });
+});
+
 const projects = {
+  vid5: {
+    meta: "AI-assisted motion · 2026",
+    title: "AI Promotion Video 1",
+    description: "AI-assisted promotional video shaped through concept development, storytelling, and creative direction.",
+    video: { src: "assets/video/vid5.mp4", poster: "assets/video/vid5-poster.webp" }
+  },
+  vid6: {
+    meta: "AI-assisted motion · 2026",
+    title: "AI Promotion Video 2",
+    description: "AI-assisted promotional video shaped through concept development, storytelling, and creative direction.",
+    video: { src: "assets/video/vid6.mp4", poster: "assets/video/vid6-poster.webp" }
+  },
+  vid7: {
+    meta: "AI-assisted motion · 2026",
+    title: "AI Promotion Video 3",
+    description: "AI-assisted promotional video shaped through concept development, storytelling, and creative direction.",
+    video: { src: "assets/video/vid7.mp4", poster: "assets/video/vid7-poster.webp" }
+  },
   recap1: {
     meta: "Video recap · 2026",
     title: "Video Recap 01",
@@ -165,28 +193,8 @@ function openProject(key, opener) {
   dialogTitle.textContent = project.title;
   dialogDescription.textContent = project.description;
   dialogList.replaceChildren();
+  dialogList.hidden = true;
   dialogGallery.replaceChildren();
-
-  const points = project.points || [];
-  const images = project.images || [];
-
-  dialogList.hidden = points.length === 0;
-
-  points.forEach((point) => {
-    const item = document.createElement("li");
-    item.textContent = point;
-    dialogList.append(item);
-  });
-
-  images.forEach(([src, alt]) => {
-    const figure = document.createElement("figure");
-    const image = document.createElement("img");
-    image.src = src;
-    image.alt = alt;
-    image.loading = "eager";
-    figure.append(image);
-    dialogGallery.append(figure);
-  });
 
   if (project.video) {
     const figure = document.createElement("figure");
@@ -607,3 +615,107 @@ if (catalog && catalogStage && catalogBookEl) {
     initCatalog();
   }
 }
+
+﻿/* --------------------------------------------------------------------------
+   Digital creative motion - custom cursor, counters, parallax
+   -------------------------------------------------------------------------- */
+
+(() => {
+  const finePointer = window.matchMedia("(hover: hover) and (pointer: fine)");
+  const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+
+  // Custom cursor
+  const dot = document.querySelector(".cursor-dot");
+  const ring = document.querySelector(".cursor-ring");
+  if (dot && ring && finePointer.matches && !reducedMotion.matches) {
+    let mx = window.innerWidth / 2;
+    let my = window.innerHeight / 2;
+    let rx = mx;
+    let ry = my;
+
+    window.addEventListener("pointermove", (event) => {
+      mx = event.clientX;
+      my = event.clientY;
+      dot.style.transform = "translate(" + mx + "px, " + my + "px) translate(-50%, -50%)";
+      if (!body.classList.contains("has-cursor")) body.classList.add("has-cursor");
+    }, { passive: true });
+
+    window.addEventListener("pointerleave", () => body.classList.remove("has-cursor"));
+
+    (function animateCursor() {
+      rx += (mx - rx) * 0.16;
+      ry += (my - ry) * 0.16;
+      ring.style.transform = "translate(" + rx + "px, " + ry + "px) translate(-50%, -50%)";
+      requestAnimationFrame(animateCursor);
+    })();
+
+    const interactive = "a, button, [role='button'], input, textarea, select, summary, label, [data-project], [data-zoom]";
+    document.addEventListener("pointerover", (event) => {
+      if (event.target.closest(interactive)) body.classList.add("cursor-hover");
+    });
+    document.addEventListener("pointerout", (event) => {
+      if (event.target.closest(interactive)) body.classList.remove("cursor-hover");
+    });
+  }
+
+  // Number counters
+  const counters = [...document.querySelectorAll("[data-count]")];
+  if (counters.length) {
+    const formatValue = (el, value) => {
+      const suffix = el.dataset.countSuffix || "";
+      const pad = Number(el.dataset.countPad || 0);
+      const formatted = el.dataset.countFormat === "comma"
+        ? Math.round(value).toLocaleString("en-US")
+        : (pad ? String(Math.round(value)).padStart(pad, "0") : String(Math.round(value)));
+      return formatted + suffix;
+    };
+
+    const animateCount = (el) => {
+      if (el.dataset.countDone) return;
+      el.dataset.countDone = "1";
+      const target = Number(el.dataset.count || 0);
+      if (reducedMotion.matches) {
+        el.textContent = formatValue(el, target);
+        return;
+      }
+      const start = performance.now();
+      const duration = 1300;
+      const tick = (now) => {
+        const progress = Math.min((now - start) / duration, 1);
+        const eased = 1 - Math.pow(1 - progress, 3);
+        el.textContent = formatValue(el, target * eased);
+        if (progress < 1) requestAnimationFrame(tick);
+        else el.textContent = formatValue(el, target);
+      };
+      requestAnimationFrame(tick);
+    };
+
+    if ("IntersectionObserver" in window) {
+      const counterObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return;
+          animateCount(entry.target);
+          observer.unobserve(entry.target);
+        });
+      }, { threshold: 0.45 });
+      counters.forEach((el) => counterObserver.observe(el));
+    } else {
+      counters.forEach(animateCount);
+    }
+  }
+
+  // Lightweight hero parallax
+  const hero = document.querySelector(".hero");
+  const heroPortrait = document.querySelector(".hero-portrait");
+  if (hero && heroPortrait && finePointer.matches && !reducedMotion.matches) {
+    hero.addEventListener("pointermove", (event) => {
+      const rect = hero.getBoundingClientRect();
+      const x = (event.clientX - rect.left) / rect.width - 0.5;
+      const y = (event.clientY - rect.top) / rect.height - 0.5;
+      heroPortrait.style.transform = "translate(" + (x * -10) + "px, " + (y * -10) + "px)";
+    }, { passive: true });
+    hero.addEventListener("pointerleave", () => {
+      heroPortrait.style.transform = "";
+    });
+  }
+})();

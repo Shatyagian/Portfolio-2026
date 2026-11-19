@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://shatyagianrproject.vercel.app/sitemap.xml

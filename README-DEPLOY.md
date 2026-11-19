@@ -1,4 +1,4 @@
-# Shatya Gian — Portfolio 2026 (Editorial Light)
+# Shatya Gian — Portfolio 2026 (Dark Neon Studio)
 
 Folder ini berisi source situs versi baru. Semua file statis — tidak butuh build tool.
 
@@ -6,13 +6,14 @@ Folder ini berisi source situs versi baru. Semua file statis — tidak butuh bui
 
 ```
 index.html                      halaman utama
-styles.css                      seluruh styling (design system Editorial Light)
-app.js                          filter project, galeri + zoom gambar, player video, menu mobile, reveal, katalog interaktif
-assets/images/                  21 gambar .webp
+styles.css                      seluruh styling (design system Dark Neon Studio)
+app.js                          filter project, galeri + zoom gambar, player video, menu mobile, reveal, katalog interaktif, cursor/counter/parallax
+robots.txt / sitemap.xml        indexing search engine
+assets/images/                  gambar .webp/jpg/png (termasuk og-cover.jpg, apple-touch-icon.png)
 assets/catalog/                 12 halaman katalog (webp, 1130×1598)
-assets/fonts/                   Instrument Serif + Inter Tight (self-host, WOFF2)
-assets/documents/               CV PDF + katalog PDF (versi unduh, 1,9 MB)
-assets/video/                   3 video recap (mp4 720×1280, ±8,5 MB) + 1 teaser (mp4 1280×720, 12 MB) + poster webp
+assets/fonts/                   Space Grotesk + DM Mono (self-host, WOFF2)
+assets/documents/               CV PDF + katalog PDF (versi unduh)
+assets/video/                   3 video recap + 1 teaser + video motion + poster webp
 assets/vendor/                  page-flip 2.0.7 (library buku interaktif, lokal)
 shatya-gian-portfolio-2026-deploy.zip   paket siap upload (tanpa folder _original)
 _original/                      backup versi lama + PDF katalog asli (jangan diupload)
@@ -84,13 +85,14 @@ Catatan: drop tanpa akun menghasilkan link yang masih terproteksi password sampa
 
 ## Yang berubah dari versi lama
 
-- Palet: dark `#0e0e0e` + merah `#971616` → krem `#F7F3EA` + terakota `#A8331C`
-- Font: League Spartan + Quicksand → Instrument Serif + Inter Tight
-- Layout: nomor section jadi rail sticky di kiri, hero asimetris, kartu project tanpa kotak gelap, filter jadi tab underline, timeline jadi tabel, contact jadi panel terakota
-- Radius 1.15rem → 2px, shadow diminimalkan, tambah pola garis & bidang aksen
-- Section baru **03 What I Do / Expertise** (setelah Profile): 4 kategori keahlian dengan 24 poin
-- Section **04 Catalog**: katalog digital implant 12 halaman yang bisa dibuka, dibalik, dan diunduh sebagai PDF
-- Kartu **01 Video Recap** (3 video vertikal) + **02 Teaser Presimposium** (16:9) di Selected Work; player di dialog, tanpa opsi unduhan
+- Palet: krem `#F7F3EA` + terakota `#A8331C` → dark `#08080D` + neon lime `#C6FF3D` + cyan `#4FE3FF` (Dark Neon Studio)
+- Font: Instrument Serif + Inter Tight → Space Grotesk + DM Mono (self-host, WOFF2)
+- Gaya: nuansa digital creative/tech — glow neon, grid teknis, marquee, kartu interaktif, contact panel lime kontras
+- Animasi (ringan, 60fps): scroll reveal dengan blur halus, marquee teks, hover glow + pointer highlight pada galeri, custom cursor & parallax ringan di desktop, counter angka, scan line hero — otomatis nonaktif saat `prefers-reduced-motion`
+- Konten & fitur dipertahankan: project cards, filter, detail/galeri inline + zoom, 4 video (tanpa UI download), katalog flip book, About/Expertise, dan seluruh copy
+- Cache-bust: `styles.css?v=8`, `app.js?v=8`
+- SEO: Open Graph image (`og-cover.jpg`), canonical, JSON-LD Person, `robots.txt`, `sitemap.xml`, `apple-touch-icon`
+- Cache font (`assets/fonts/`) dan library (`assets/vendor/`) 1 tahun `immutable` di `vercel.json`; gambar/video 1 hari
 
 ## Aksesibilitas & performa
 
