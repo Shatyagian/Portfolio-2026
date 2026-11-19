@@ -3582,3 +3582,262 @@ body.cursor-hover .cursor-ring {
     letter-spacing: -0.02em;
   }
 }
+/* Content Performance Index (IPK) chart ----------------------------------- */
+.ipk-chart {
+  --ipk-bg: var(--surface);
+  --ipk-surface: var(--surface-2);
+  --ipk-text: var(--ink);
+  --ipk-muted: var(--muted);
+  --ipk-line: var(--line);
+  --ipk-accent: var(--accent);
+  --ipk-accent-soft: var(--accent-soft);
+  --ipk-cyan: var(--cyan);
+  margin-top: 1.4rem;
+  padding: 1.1rem 1.2rem 1rem;
+  border: 1px solid var(--ipk-line);
+  border-radius: var(--radius);
+  background: var(--ipk-bg);
+  color: var(--ipk-text);
+}
+
+.ipk-chart--impact {
+  --ipk-bg: rgba(255, 255, 255, 0.03);
+  --ipk-surface: rgba(255, 255, 255, 0.06);
+  --ipk-text: var(--on-dark);
+  --ipk-muted: var(--on-dark-muted);
+  --ipk-line: var(--line-on-dark);
+  margin-top: 0;
+}
+
+.ipk-block {
+  margin-top: 2.4rem;
+}
+
+.ipk-chart__head {
+  margin-bottom: 0.75rem;
+}
+
+.ipk-chart__eyebrow,
+.ipk-chart__sub {
+  margin: 0;
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ipk-muted);
+}
+
+.ipk-chart__title {
+  margin: 0.2rem 0 0.15rem;
+  font-family: var(--display);
+  font-size: 1.15rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  color: var(--ipk-text);
+}
+
+.ipk-chart__viz {
+  margin: 0.25rem 0 0.2rem;
+}
+
+.ipk-svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  overflow: visible;
+}
+
+.ipk-svg .ipk-grid line {
+  stroke: var(--ipk-line);
+  stroke-width: 1;
+  stroke-dasharray: 4 4;
+}
+
+.ipk-svg .ipk-grid text {
+  fill: var(--ipk-muted);
+  font-family: var(--mono);
+  font-size: 10px;
+}
+
+.ipk-svg .ipk-bar {
+  fill: var(--ipk-accent-soft);
+  stroke: var(--ipk-accent);
+  stroke-width: 1;
+}
+
+.ipk-svg .ipk-bar--reels {
+  fill: rgba(79, 227, 255, 0.18);
+  stroke: var(--ipk-cyan);
+}
+
+.ipk-svg .ipk-bar--stories {
+  fill: rgba(244, 244, 250, 0.08);
+}
+
+.ipk-svg .ipk-val {
+  fill: var(--ipk-text);
+  font-family: var(--mono);
+  font-size: 12px;
+  font-weight: 500;
+  text-anchor: middle;
+}
+
+.ipk-svg .ipk-x text {
+  fill: var(--ipk-text);
+  font-family: var(--body);
+  font-size: 12px;
+  font-weight: 600;
+  text-anchor: middle;
+}
+
+.ipk-svg .ipk-x .ipk-sub {
+  fill: var(--ipk-muted);
+  font-family: var(--mono);
+  font-size: 9.5px;
+  font-weight: 400;
+}
+
+.ipk-table-wrap {
+  margin-top: 0.6rem;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.ipk-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.84rem;
+}
+
+.ipk-table th,
+.ipk-table td {
+  padding: 0.45rem 0.5rem;
+  text-align: left;
+  border-bottom: 1px solid var(--ipk-line);
+  white-space: nowrap;
+}
+
+.ipk-table thead th {
+  font-family: var(--mono);
+  font-size: 0.68rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ipk-muted);
+}
+
+.ipk-table tbody th {
+  font-weight: 600;
+  color: var(--ipk-text);
+}
+
+.ipk-table td {
+  font-variant-numeric: tabular-nums;
+  color: var(--ipk-text);
+}
+
+.ipk-table .ipk-strong {
+  font-weight: 700;
+  color: var(--ipk-accent);
+}
+
+.ipk-chart--impact .ipk-table .ipk-strong {
+  color: var(--ipk-accent);
+}
+
+.ipk-caption {
+  margin: 0.55rem 0 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem 1rem;
+  align-items: center;
+  font-size: 0.78rem;
+  line-height: 1.5;
+  color: var(--ipk-muted);
+}
+
+.ipk-legend {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-family: var(--mono);
+  font-size: 0.68rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--ipk-text);
+}
+
+.ipk-legend__bar,
+.ipk-legend__bar {
+  width: 12px;
+  height: 10px;
+  border-radius: 2px;
+  background: var(--ipk-accent-soft);
+  border: 1px solid var(--ipk-accent);
+  margin-right: 0.15rem;
+}
+
+.impact-source {
+  margin-top: 0.5rem;
+  font-family: var(--mono);
+  font-size: 0.78rem;
+  letter-spacing: 0.02em;
+  color: var(--on-dark-muted);
+}
+
+@media (max-width: 640px) {
+  .ipk-chart {
+    padding: 0.9rem 0.85rem 0.85rem;
+  }
+
+  .ipk-chart__title {
+    font-size: 1.02rem;
+  }
+
+  .ipk-svg .ipk-val {
+    font-size: 11px;
+  }
+
+  .ipk-svg .ipk-x text {
+    font-size: 11px;
+  }
+
+  .ipk-svg .ipk-x .ipk-sub {
+    font-size: 8.5px;
+  }
+}
+
+/* IPK chart motion (lightweight, respects reduced motion) ------------------ */
+.js .ipk-chart .ipk-bar {
+  transform-box: fill-box;
+  transform-origin: bottom;
+  transform: scaleY(0);
+  transition: transform 800ms var(--ease);
+}
+
+.js .ipk-chart .ipk-val {
+  opacity: 0;
+  transition: opacity 400ms var(--ease) 350ms;
+}
+
+.js .reveal.is-visible .ipk-chart .ipk-bar,
+.js .reveal.is-visible.ipk-chart .ipk-bar {
+  transform: scaleY(1);
+}
+
+.js .reveal.is-visible .ipk-chart .ipk-val,
+.js .reveal.is-visible.ipk-chart .ipk-val {
+  opacity: 1;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .js .ipk-chart .ipk-bar {
+    transform: none;
+    transition: none;
+  }
+
+    .js .ipk-chart .ipk-val {
+    opacity: 1;
+    transition: none;
+  }
+}

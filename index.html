@@ -31,9 +31,9 @@
   <link rel="preload" href="assets/fonts/space-grotesk-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="assets/fonts/dm-mono-400-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="assets/images/img-001.webp?v=2" as="image" type="image/webp">
-  <link rel="stylesheet" href="styles.css?v=8">
+  <link rel="stylesheet" href="styles.css?v=9">
   <script src="assets/vendor/page-flip.browser.js" defer></script>
-  <script src="app.js?v=8" defer></script>
+  <script src="app.js?v=9" defer></script>
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -572,17 +572,17 @@
                 <p class="project-meta"><span>09 / Content analytics</span><span>2026</span></p>
                 <div class="project-copy">
                   <div class="project-title">
-                    <p class="project-type">Analysis · Social content</p>
+                    <p class="project-type">Analysis · Instagram Insights</p>
                     <h3>Content Performance</h3>
                   </div>
-                  <p class="project-desc">Analysis of 40 Instagram posts, visualizing the shift from a 482-view sample average to 23,010 views per post.</p>
+                  <p class="project-desc">Content Performance Index (IPK) for <strong>@mkg_indonesia (MKG INDONESIA)</strong>, based on Instagram Insights (20 Sep–19 Nov 2026, 60 days). IPK combines reach and engagement quality to compare content formats.</p>
                 </div>
                 <div class="project-detail">
                   <ul class="project-points">
-                    <li>Recent sample average: 23,010 views per post.</li>
-                    <li>Earlier sample average: 482 views per post.</li>
-                    <li>Peak post: 149,700 views; recent total: 460,190 views.</li>
-                    <li>Average-view increase: approximately 47.7×.</li>
+                    <li>Source: Instagram Insights, @mkg_indonesia (MKG INDONESIA), 20 Sep–19 Nov 2026 (60 days).</li>
+                    <li>Account: 118,109 total views (+16.5%), 23,207 accounts reached (+80.4%), 1,996 followers, 2,913 profile visits.</li>
+                    <li>IPK = 50% × ER (normalized) + 50% × Views (normalized), scale 0–100 (ER = Interactions / Views).</li>
+                    <li>Top by IPK: Reels 87.9 (ER 2.78%, 834 interactions, 30.0K views) · Posts 74.6 · Stories 27.3.</li>
                   </ul>
                   <div class="project-gallery project-gallery--large">
                     <button class="gallery-shot" type="button" data-zoom="assets/images/img-057.webp" data-zoom-alt="Instagram content performance comparison infographic" aria-label="Zoom: Instagram content performance comparison infographic">
@@ -602,14 +602,60 @@
         <div class="section-label section-label--light reveal"><span>06</span><p>Measured impact</p></div>
         <div class="impact-body">
           <div class="impact-copy reveal">
-            <p class="impact-kicker">Instagram content sample</p>
-            <h2 id="impact-title">Not only seen.<br><em>Remembered.</em></h2>
-            <p>Across 40 analyzed posts, the recent content sample averaged 23,010 views—approximately 47.7 times the earlier sample. Results include both organic and promoted content.</p>
+            <p class="impact-kicker">Instagram Insights · @mkg_indonesia (MKG INDONESIA)</p>
+            <h2 id="impact-title">Performance,<br><em>measured.</em></h2>
+            <p>Data from <strong>Instagram Insights for @mkg_indonesia (MKG INDONESIA)</strong>.</p>
           </div>
           <div class="impact-stats reveal">
-            <div><strong data-count="23010" data-count-format="comma">23,010</strong><span>average views / post</span></div>
-            <div><strong data-count="460190" data-count-format="comma">460,190</strong><span>total views</span></div>
-            <div><strong data-count="149700" data-count-format="comma">149,700</strong><span>highest-performing post</span></div>
+            <div><strong data-count="118109" data-count-format="comma">118,109</strong><span>total views (+16.5%)</span></div>
+            <div><strong data-count="23207" data-count-format="comma">23,207</strong><span>accounts reached (+80.4%)</span></div>
+            <div><strong data-count="2913" data-count-format="comma">2,913</strong><span>profile visits</span></div>
+          </div>
+        </div>
+
+        <div class="ipk-block reveal" aria-label="Content Performance Index (IPK) for @mkg_indonesia">
+          <div class="ipk-chart ipk-chart--impact">
+            <div class="ipk-chart__head">
+              <p class="ipk-chart__title">Content Performance Index (IPK)</p>
+              <p class="ipk-chart__sub">MKG INDONESIA · @mkg_indonesia · Instagram Insights · 20 Sep–19 Nov 2026</p>
+            </div>
+            <div class="ipk-chart__viz">
+              <svg class="ipk-svg" viewBox="0 0 600 250" role="img" aria-labelledby="ipk-impact-title ipk-impact-desc" preserveAspectRatio="xMidYMid meet">
+                <title id="ipk-impact-title">IPK bar chart by content format</title>
+                <desc id="ipk-impact-desc">Posts: 39.6K views, 542 interactions, ER 1.37%, IPK 74.6. Reels: 30.0K views, 834 interactions, ER 2.78%, IPK 87.9. Stories: 19.6K views, 28 interactions, ER 0.14%, IPK 27.3.</desc>
+                <g class="ipk-grid" aria-hidden="true">
+                  <line x1="30" y1="170" x2="540" y2="170"></line>
+                  <line x1="30" y1="105" x2="540" y2="105"></line>
+                  <line x1="30" y1="40" x2="540" y2="40"></line>
+                  <text x="22" y="173">0</text><text x="12" y="108">50</text><text x="6" y="43">100</text>
+                </g>
+                <g class="ipk-bars">
+                  <rect class="ipk-bar ipk-bar--posts" x="80" y="73" width="80" height="97" rx="4"><title>Posts: IPK 74.6</title></rect>
+                  <text class="ipk-val" x="120" y="65">74.6</text>
+                  <rect class="ipk-bar ipk-bar--reels" x="260" y="55.7" width="80" height="114.3" rx="4"><title>Reels: IPK 87.9</title></rect>
+                  <text class="ipk-val" x="300" y="47.7">87.9</text>
+                  <rect class="ipk-bar ipk-bar--stories" x="440" y="134.5" width="80" height="35.5" rx="4"><title>Stories: IPK 27.3</title></rect>
+                  <text class="ipk-val" x="480" y="126.5">27.3</text>
+                </g>
+                <g class="ipk-x">
+                  <text x="120" y="194">Posts</text><text x="300" y="194">Reels</text><text x="480" y="194">Stories</text>
+                  <text class="ipk-sub" x="120" y="210">39.6K views</text><text class="ipk-sub" x="300" y="210">30.0K views</text><text class="ipk-sub" x="480" y="210">19.6K views</text>
+                  <text class="ipk-sub" x="120" y="224">542 · 1.37%</text><text class="ipk-sub" x="300" y="224">834 · 2.78%</text><text class="ipk-sub" x="480" y="224">28 · 0.14%</text>
+                </g>
+              </svg>
+            </div>
+            <div class="ipk-table-wrap">
+              <table class="ipk-table">
+                <caption class="sr-only">IPK metrics by content format</caption>
+                <thead><tr><th scope="col">Format</th><th scope="col">Views</th><th scope="col">Interactions</th><th scope="col">ER</th><th scope="col">IPK</th></tr></thead>
+                <tbody>
+                  <tr><th scope="row">Posts</th><td>39.6K</td><td>542</td><td>1.37%</td><td class="ipk-strong">74.6</td></tr>
+                  <tr><th scope="row">Reels</th><td>30.0K</td><td>834</td><td>2.78%</td><td class="ipk-strong">87.9</td></tr>
+                  <tr><th scope="row">Stories</th><td>19.6K</td><td>28</td><td>0.14%</td><td class="ipk-strong">27.3</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <p class="ipk-caption"><span class="ipk-legend"><i class="ipk-legend__bar"></i> IPK bar</span><span>Source: Instagram Insights, @mkg_indonesia (MKG INDONESIA).</span></p>
           </div>
         </div>
       </div>
