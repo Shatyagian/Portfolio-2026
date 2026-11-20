@@ -67,7 +67,7 @@ const projects = {
   },
   teaser2: {
     meta: "Teaser · Video · 2026",
-    title: "Teaser Presimposium — Trailer 3",
+    title: "Teaser Presimposium 2",
     description: "A teaser trailer introducing Presimposium, cut for social media announcement.",
     video: {
       src: "assets/video/teaser-presimposium-trailer-3.mp4",
