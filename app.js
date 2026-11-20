@@ -64,6 +64,15 @@ const projects = {
       src: "assets/video/teaser-presimposium.mp4",
       poster: "assets/video/teaser-presimposium-poster.webp"
     }
+  },
+  teaser2: {
+    meta: "Teaser · Video · 2026",
+    title: "Teaser Presimposium — Trailer 3",
+    description: "A teaser trailer introducing Presimposium, cut for social media announcement.",
+    video: {
+      src: "assets/video/teaser-presimposium-trailer-3.mp4",
+      poster: "assets/video/teaser-presimposium-poster.webp"
+    }
   }
 };
 
