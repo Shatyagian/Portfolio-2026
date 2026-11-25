@@ -13,7 +13,7 @@ assets/images/                  gambar .webp/jpg/png (termasuk og-cover.jpg, app
 assets/catalog/                 12 halaman katalog (webp, 1130×1598)
 assets/fonts/                   Space Grotesk + DM Mono (self-host, WOFF2)
 assets/documents/               CV PDF + katalog PDF (versi unduh)
-assets/video/                   3 video recap + 1 teaser + video motion + poster webp
+assets/video/                   poster webp (MP4 disajikan dari Vercel Blob)
 assets/vendor/                  page-flip 2.0.7 (library buku interaktif, lokal)
 shatya-gian-portfolio-2026-deploy.zip   paket siap upload (tanpa folder _original)
 _original/                      backup versi lama + PDF katalog asli (jangan diupload)
@@ -89,7 +89,7 @@ Catatan: drop tanpa akun menghasilkan link yang masih terproteksi password sampa
 - Font: Instrument Serif + Inter Tight → Space Grotesk + DM Mono (self-host, WOFF2)
 - Gaya: nuansa digital creative/tech — glow neon, grid teknis, marquee, kartu interaktif, contact panel lime kontras
 - Animasi (ringan, 60fps): scroll reveal dengan blur halus, marquee teks, hover glow + pointer highlight pada galeri, custom cursor & parallax ringan di desktop, counter angka, scan line hero — otomatis nonaktif saat `prefers-reduced-motion`
-- Konten & fitur dipertahankan: project cards, filter, detail/galeri inline + zoom, 4 video (tanpa UI download), katalog flip book, About/Expertise, dan seluruh copy
+- Konten & fitur dipertahankan: project cards, filter, detail/galeri inline + zoom, video recap/teaser/AI promotion (tanpa UI download), katalog flip book, About/Expertise, dan seluruh copy
 - Cache-bust: `styles.css?v=8`, `app.js?v=8`
 - SEO: Open Graph image (`og-cover.jpg`), canonical, JSON-LD Person, `robots.txt`, `sitemap.xml`, `apple-touch-icon`
 - Cache font (`assets/fonts/`) dan library (`assets/vendor/`) 1 tahun `immutable` di `vercel.json`; gambar/video 1 hari
@@ -100,9 +100,10 @@ Catatan: drop tanpa akun menghasilkan link yang masih terproteksi password sampa
 - Tap target minimum 44px
 - `prefers-reduced-motion` didukung
 - Semua gambar punya `width`/`height` dan `alt`
-- Tidak ada request eksternal — font, gambar, dan library lokal semua
-- Total aset ±45 MB (termasuk 4 video 720p + katalog 12 halaman + PDF unduhan)
-- File video asli (`assets/video/vid*.mp4`, `assets/video/TEASER Presimposium.mp4`) tidak ikut deploy; hanya versi web yang diunggah
+- Aset kecil (font, gambar, poster, library) self-hosted; video MP4 disajikan dari Vercel Blob
+- Total aset repo lebih ringan karena seluruh MP4 tidak disimpan di repo
+- Semua MP4 ada di Vercel Blob (`https://bae6uxmcmapaqoni.public.blob.vercel-storage.com/video/`); repo hanya menyimpan poster dan aset kecil
+- Vercel Blob Hobby: 1 GB storage + 10 GB transfer/bulan; jika terlampaui, akses Blob diblokir sampai 30 hari
 
 ## Rollback
 

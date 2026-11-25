@@ -2,9 +2,8 @@
 _original/
 *.zip
 
-# Video sumber (331 MB) — versi web ada di assets/video/recap-*.mp4
-assets/video/vid*.mp4
-assets/video/TEASER Presimposium.mp4
+# Video MP4 (dihosting di Vercel Blob; file lokal ada di _original/videos-blob/)
+assets/video/*.mp4
 
 # File sistem
 Thumbs.db
@@ -17,3 +16,5 @@ desktop.ini
 # Export Behance (dibuat lokal, tidak ikut ke repo)
 Shatya-Gian-Portfolio-Behance.jpg
 Shatya-Gian-Portfolio-Behance.pdf
+
+.env*

@@ -1,9 +1,5 @@
 _original/
-assets/video/vid*.mp4
-!assets/video/vid5.mp4
-!assets/video/vid6.mp4
-!assets/video/vid7.mp4
-assets/video/TEASER Presimposium.mp4
+assets/video/*.mp4
 *.zip
 .git/
 .gitignore

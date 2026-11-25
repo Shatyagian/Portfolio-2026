@@ -15,26 +15,26 @@ const projects = {
     meta: "AI-assisted motion · 2026",
     title: "AI Promotion Video 1",
     description: "AI-assisted promotional video shaped through concept development, storytelling, and creative direction.",
-    video: { src: "assets/video/vid5.mp4", poster: "assets/video/vid5-poster.webp" }
+    video: { src: "https://bae6uxmcmapaqoni.public.blob.vercel-storage.com/video/vid5.mp4", poster: "assets/video/vid5-poster.webp" }
   },
   vid6: {
     meta: "AI-assisted motion · 2026",
     title: "AI Promotion Video 2",
     description: "AI-assisted promotional video shaped through concept development, storytelling, and creative direction.",
-    video: { src: "assets/video/vid6.mp4", poster: "assets/video/vid6-poster.webp" }
+    video: { src: "https://bae6uxmcmapaqoni.public.blob.vercel-storage.com/video/vid6.mp4", poster: "assets/video/vid6-poster.webp" }
   },
   vid7: {
     meta: "AI-assisted motion · 2026",
     title: "AI Promotion Video 3",
     description: "AI-assisted promotional video shaped through concept development, storytelling, and creative direction.",
-    video: { src: "assets/video/vid7.mp4", poster: "assets/video/vid7-poster.webp" }
+    video: { src: "https://bae6uxmcmapaqoni.public.blob.vercel-storage.com/video/vid7.mp4", poster: "assets/video/vid7-poster.webp" }
   },
   recap1: {
     meta: "Video recap · 2026",
     title: "Video Recap 01",
     description: "A vertical recap video for social media, from documentation through editing and delivery.",
     video: {
-      src: "assets/video/recap-01.mp4",
+      src: "https://bae6uxmcmapaqoni.public.blob.vercel-storage.com/video/recap-01.mp4",
       poster: "assets/video/recap-01-poster.webp"
     }
   },
@@ -43,7 +43,7 @@ const projects = {
     title: "Video Recap 02",
     description: "A vertical recap video for social media, from documentation through editing and delivery.",
     video: {
-      src: "assets/video/recap-02.mp4",
+      src: "https://bae6uxmcmapaqoni.public.blob.vercel-storage.com/video/recap-02.mp4",
       poster: "assets/video/recap-02-poster.webp"
     }
   },
@@ -52,7 +52,7 @@ const projects = {
     title: "Video Recap 03",
     description: "A vertical recap video for social media, from documentation through editing and delivery.",
     video: {
-      src: "assets/video/recap-03.mp4",
+      src: "https://bae6uxmcmapaqoni.public.blob.vercel-storage.com/video/recap-03.mp4",
       poster: "assets/video/recap-03-poster.webp"
     }
   },
@@ -61,7 +61,7 @@ const projects = {
     title: "Teaser Presimposium",
     description: "A short cinematic teaser introducing Presimposium, cut for social media announcement.",
     video: {
-      src: "assets/video/teaser-presimposium.mp4",
+      src: "https://bae6uxmcmapaqoni.public.blob.vercel-storage.com/video/teaser-presimposium.mp4",
       poster: "assets/video/teaser-presimposium-poster.webp"
     }
   },
@@ -70,7 +70,7 @@ const projects = {
     title: "Teaser Presimposium 2",
     description: "A teaser trailer introducing Presimposium, cut for social media announcement.",
     video: {
-      src: "assets/video/teaser-presimposium-trailer-3.mp4",
+      src: "https://bae6uxmcmapaqoni.public.blob.vercel-storage.com/video/teaser-presimposium-trailer-3.mp4",
       poster: "assets/video/teaser-presimposium-poster.webp"
     }
   }

@@ -1,6 +1,6 @@
 # Shatya Gian — Portfolio 2026
 
-Portfolio digital-creative berbasis **HTML, CSS, dan JavaScript murni**. Tidak ada build step: semua aset (font, gambar, video, dan library) disimpan lokal di dalam repo sehingga situs bisa dibuka langsung atau di-deploy sebagai static site.
+Portfolio digital-creative berbasis **HTML, CSS, dan JavaScript murni**. Tidak ada build step: kode dan aset kecil disimpan di repo, sedangkan video MP4 disajikan dari **Vercel Blob**.
 
 **Live site:** <https://shatyagianrproject.vercel.app>
 
@@ -25,7 +25,7 @@ Halaman-halaman utama:
 - Reveal saat scroll, counter angka, marquee, custom cursor, dan parallax ringan
 - Semua animasi otomatis dinonaktifkan ketika `prefers-reduced-motion` aktif
 - SEO: canonical, Open Graph, JSON-LD Person, `robots.txt`, `sitemap.xml`, `apple-touch-icon`
-- Tidak ada request ke layanan eksternal
+- Aset kecil self-hosted; video MP4 disajikan dari Vercel Blob
 
 ## Struktur
 
@@ -41,10 +41,20 @@ assets/
   fonts/              Space Grotesk + DM Mono (WOFF2, self-host)
   catalog/            12 halaman katalog (webp)
   documents/          CV PDF + katalog PDF untuk unduhan
-  video/              recap, teaser, motion, dan poster webp
+  video/              poster webp (MP4 ada di Vercel Blob)
   vendor/             page-flip 2.0.7 (lokal)
 README-DEPLOY.md      catatan deploy lengkap
 ```
+
+## Video hosting
+
+Semua MP4 disajikan dari **Vercel Blob**:
+
+```text
+https://bae6uxmcmapaqoni.public.blob.vercel-storage.com/video/
+```
+
+URL lengkap ada di `app.js`. Poster tetap disimpan di `assets/video/` agar halaman tetap ringan. Karena video berada di domain terpisah, situs ini tidak lagi sepenuhnya self-hosted untuk aset video.
 
 ## Jalankan lokal
 
@@ -68,7 +78,7 @@ cd "H:\Portfolio 2026"
 npx.cmd vercel@latest deploy --prod
 ```
 
-Setup hosting lain juga dimungkinkan karena tidak ada proses build — cukup upload `index.html`, `styles.css`, `app.js`, dan folder `assets/`. Detail lengkap ada di [`README-DEPLOY.md`](README-DEPLOY.md).
+Setup hosting lain juga dimungkinkan karena tidak ada proses build — cukup upload `index.html`, `styles.css`, `app.js`, dan folder `assets/`. Video MP4 tidak ikut deploy karena sudah ada di Vercel Blob; folder `assets/video/` hanya berisi poster. Detail lengkap ada di [`README-DEPLOY.md`](README-DEPLOY.md).
 
 Repo GitHub ini hanya menyimpan source. GitHub Pages sengaja tidak diaktifkan.
 
@@ -78,7 +88,7 @@ Yang **tidak** ikut ke repo:
 
 - `_original/` — backup versi lama
 - `*.zip` — paket deploy
-- `assets/video/vid*.mp4` dan `assets/video/TEASER Presimposium.mp4` — video sumber berukuran besar
+- `assets/video/*.mp4` — video MP4 sudah dipindah ke Vercel Blob; salinan lokal ada di `_original/videos-blob/`
 - `.vercel/` — konfigurasi lokal Vercel
 - `Shatya-Gian-Portfolio-Behance.jpg` / `.pdf` — export Behance yang dibuat lokal
 
