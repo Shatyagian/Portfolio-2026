@@ -13,3 +13,7 @@ desktop.ini
 
 # Vercel CLI (berisi ID project, bukan kode situs)
 .vercel/
+
+# Export Behance (dibuat lokal, tidak ikut ke repo)
+Shatya-Gian-Portfolio-Behance.jpg
+Shatya-Gian-Portfolio-Behance.pdf
