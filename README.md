@@ -71,10 +71,17 @@ Lalu buka URL yang muncul, biasanya <http://localhost:3000>.
 
 ## Deploy
 
-Situs sudah live di Vercel sebagai static site tanpa build command:
+Situs live di Vercel sebagai static site tanpa build command. Repo GitHub `Shatyagian/Portfolio-2026` sudah terhubung ke project Vercel pada branch `main`, jadi **setiap `git push` otomatis deploy**.
 
 ```powershell
-cd "H:\Portfolio 2026"
+git add -A
+git commit -m "Update konten"
+git push origin main
+```
+
+Fallback manual bila perlu:
+
+```powershell
 npx.cmd vercel@latest deploy --prod
 ```
 

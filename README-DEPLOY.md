@@ -41,14 +41,26 @@ Buka URL yang muncul (biasanya `http://localhost:3000`).
 
 Project: `shatya-gian/portfolio-2026`. Static site, tanpa build step.
 
-Update setelah ganti foto atau edit file:
+**Auto-deploy aktif:** repo GitHub `Shatyagian/Portfolio-2026` sudah terhubung ke project Vercel pada branch `main`. Setiap `git push` ke `main` otomatis membuat deployment production, tanpa CLI.
+
+Alur update dari PC mana pun:
 
 ```powershell
-cd "H:\Portfolio 2026"
+git add -A
+git commit -m "Update konten"
+git push origin main
+```
+
+Vercel langsung build & deploy (sekitar 10–20 detik). URL tidak berubah.
+
+**Fallback manual** (kalau auto-deploy sedang bermasalah):
+
+```powershell
+cd "path/ke/Portfolio-2026"
 npx.cmd vercel@latest deploy --prod
 ```
 
-URL tidak berubah. Sekitar 20 detik. Login Vercel sudah tersimpan di mesin ini.
+Catatan: video MP4 tidak ikut deploy karena sudah ada di Vercel Blob; repo hanya menyimpan poster.
 
 **Kalau foto diganti dengan nama file yang sama:** browser menyimpan cache gambar sampai 1 hari. Supaya foto baru langsung terlihat tanpa hard-refresh, naikkan angka versi di URL-nya. Contoh untuk hero:
 
