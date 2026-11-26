@@ -37,7 +37,7 @@ Buka URL yang muncul (biasanya `http://localhost:3000`).
 
 ### Live sekarang — Vercel
 
-**URL produksi:** <https://shatyagianrproject.vercel.app>
+**URL produksi:** <https://shatyagianproject.vercel.app>
 
 Project: `shatya-gian/portfolio-2026`. Static site, tanpa build step.
 

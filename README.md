@@ -2,7 +2,7 @@
 
 Portfolio digital-creative berbasis **HTML, CSS, dan JavaScript murni**. Tidak ada build step: kode dan aset kecil disimpan di repo, sedangkan video MP4 disajikan dari **Vercel Blob**.
 
-**Live site:** <https://shatyagianrproject.vercel.app>
+**Live site:** <https://shatyagianproject.vercel.app>
 
 ## Ringkasan
 
@@ -108,6 +108,6 @@ Semua file tersebut tetap ada di folder kerja lokal.
 
 ## Kontak
 
-Untuk kolaborasi atau pertanyaan, gunakan panel **Contact** di <https://shatyagianrproject.vercel.app>.
+Untuk kolaborasi atau pertanyaan, gunakan panel **Contact** di <https://shatyagianproject.vercel.app>.
 
 © 2026 Shatya Gian.
