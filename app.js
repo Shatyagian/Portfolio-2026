@@ -100,7 +100,7 @@ menuButton?.addEventListener("click", () => {
   menuButton.querySelector(".menu-toggle__label").textContent = willOpen ? "Close" : "Menu";
 });
 
-navLinks.forEach((link) => link.addEventListener("click", () => closeMenu()));
+document.querySelectorAll(".primary-nav a").forEach((link) => link.addEventListener("click", () => closeMenu()));
 
 document.addEventListener("keydown", (event) => {
   if (event.key === "Escape" && nav?.classList.contains("is-open")) {

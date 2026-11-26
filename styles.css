@@ -283,7 +283,7 @@ section[id] {
   transition: color 180ms ease;
 }
 
-.primary-nav a:not(.nav-cv)::after {
+.primary-nav a:not(.nav-cv):not(.nav-portfolio)::after {
   position: absolute;
   right: 0;
   bottom: 0.6rem;
@@ -319,6 +319,28 @@ section[id] {
   border-color: var(--ink);
   background: var(--ink);
   color: var(--on-dark) !important;
+}
+
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: clamp(0.5rem, 1.2vw, 0.9rem);
+}
+
+.nav-portfolio {
+  gap: 0.4rem;
+  padding: 0 0.95rem;
+  border: 1px solid var(--accent);
+  border-radius: var(--radius);
+  background: var(--accent);
+  color: var(--on-accent) !important;
+  transition: background 180ms ease, border-color 180ms ease, color 180ms ease !important;
+}
+
+.nav-portfolio:hover {
+  border-color: var(--accent-deep);
+  background: var(--accent-deep);
+  color: var(--on-accent) !important;
 }
 
 .menu-toggle {
@@ -2859,7 +2881,12 @@ section[id] {
     letter-spacing: 0.08em;
   }
 
-  .nav-cv {
+  .nav-actions {
+    gap: 0.4rem;
+  }
+
+  .nav-cv,
+  .nav-portfolio {
     min-height: 36px;
     padding: 0 0.6rem;
   }
@@ -2906,19 +2933,33 @@ section[id] {
     text-transform: none;
   }
 
-  .primary-nav a:not(.nav-cv)::after { display: none; }
+  .primary-nav a:not(.nav-cv):not(.nav-portfolio)::after { display: none; }
 
-  .primary-nav .nav-cv {
+  .primary-nav .nav-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+    margin-top: 1.5rem;
+  }
+
+  .primary-nav .nav-cv,
+  .primary-nav .nav-portfolio {
     display: inline-flex;
     width: fit-content;
     min-height: 48px;
-    margin-top: 1.5rem;
+    margin-top: 0;
     padding: 0 1.1rem;
     border: 1px solid var(--line-strong);
     font-family: var(--body);
     font-size: 0.68rem;
     letter-spacing: 0.14em;
     text-transform: uppercase;
+  }
+
+  .primary-nav .nav-portfolio {
+    border-color: var(--accent);
+    background: var(--accent);
+    color: var(--on-accent) !important;
   }
 
   .hero {
@@ -3316,7 +3357,8 @@ body {
 /* Neon buttons and filters ------------------------------------------------ */
 .button--primary,
 .filter.is-active,
-.nav-cv {
+.nav-cv,
+.nav-portfolio {
   border-radius: 999px;
 }
 
