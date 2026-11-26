@@ -6,23 +6,26 @@ Portfolio digital-creative berbasis **HTML, CSS, dan JavaScript murni**. Tidak a
 
 ## Ringkasan
 
-Versi 2026 memakai design system **Dark Neon Studio**: palet gelap `#08080D` dengan aksen neon lime `#C6FF3D` dan cyan `#4FE3FF`, tipografi **Space Grotesk** + **DM Mono** (self-host WOFF2), grid teknis, glow halus, marquee, dan kartu interaktif.
+Versi 2026 memakai design system **Dark Neon Studio edisi editorial**: latar hampir hitam `#070B09` bergantian dengan kertas off-white `#F1F0EB`, tipografi raksasa **Space Grotesk** + **DM Mono** (self-host WOFF2), aksen neon lime `#C6FF3D`, tombol pill, marquee, dan menu overlay layar penuh.
 
 Halaman-halaman utama:
 
-- Intro — *Ideas into visual stories*
-- Expertise
+- Hero — *Video, Editor, & Designer* dengan showreel
+- About — ringkasan peran dan angka kunci
+- Video editing & motion — 1 film unggulan, 6 potongan short-form, 2 seleksi cinematic
+- Graphic design — marketplace visual, visual cetak, event ISID 2026, automation chat
 - Product Catalog Showcase — flipbook katalog 12 halaman
-- Work — 9 project card dengan filter kategori
-- Performance — *measured*, termasuk indeks konten kreatif (IPK) dari Instagram Insights `@mkg_indonesia` (20 Sep–19 Nov 2026)
-- Experience, Credentials, Online, dan Contact
+- Instagram results — ringkasan views, reach, followers, dan IPK dengan tautan ke halaman performance
+- Experience, Credentials, dan Contact
+- `performance.html` — laporan lengkap *Performance, measured.* (IPK dan Instagram Insights `@mkg_indonesia`, 20 Sep–19 Nov 2026)
 
 ## Fitur
 
-- Filter project dan detail project dalam dialog + zoom gambar
-- Player video untuk recap, teaser, dan motion (tanpa tombol download)
+- Menu overlay layar penuh dengan navigasi anchor dan tautan sosial
+- Detail project video dalam dialog dan player tanpa tombol download
+- Zoom gambar dan sertifikat dalam dialog
 - Katalog interaktif memakai `page-flip` 2.0.7 yang disimpan lokal
-- Reveal saat scroll, counter angka, marquee, custom cursor, dan parallax ringan
+- Reveal saat scroll, counter angka, marquee, dan progress bar
 - Semua animasi otomatis dinonaktifkan ketika `prefers-reduced-motion` aktif
 - SEO: canonical, Open Graph, JSON-LD Person, `robots.txt`, `sitemap.xml`, `apple-touch-icon`
 - Aset kecil self-hosted; video MP4 disajikan dari Vercel Blob
@@ -31,8 +34,10 @@ Halaman-halaman utama:
 
 ```text
 index.html            halaman utama
+performance.html      laporan performa Instagram/IPK
 styles.css            design system + seluruh styling
-app.js                filter, galeri, video, katalog, menu, animasi
+app.js                video, katalog, menu, zoom, reveal, counter
+performance.js        script khusus halaman performance
 vercel.json           header cache untuk Vercel
 robots.txt            aturan indexing
 sitemap.xml           peta situs
@@ -40,7 +45,7 @@ assets/
   images/             gambar .webp/.jpg/.png, og-cover, ikon
   fonts/              Space Grotesk + DM Mono (WOFF2, self-host)
   catalog/            12 halaman katalog (webp)
-  documents/          CV PDF + katalog PDF untuk unduhan
+  documents/          CV, portfolio, dan katalog PDF untuk unduhan
   video/              poster webp (MP4 ada di Vercel Blob)
   vendor/             page-flip 2.0.7 (lokal)
 README-DEPLOY.md      catatan deploy lengkap
@@ -85,7 +90,7 @@ Fallback manual bila perlu:
 npx.cmd vercel@latest deploy --prod
 ```
 
-Setup hosting lain juga dimungkinkan karena tidak ada proses build — cukup upload `index.html`, `styles.css`, `app.js`, dan folder `assets/`. Video MP4 tidak ikut deploy karena sudah ada di Vercel Blob; folder `assets/video/` hanya berisi poster. Detail lengkap ada di [`README-DEPLOY.md`](README-DEPLOY.md).
+Setup hosting lain juga dimungkinkan karena tidak ada proses build — cukup upload `index.html`, `performance.html`, `styles.css`, `app.js`, `performance.js`, dan folder `assets/`. Video MP4 tidak ikut deploy karena sudah ada di Vercel Blob; folder `assets/video/` hanya berisi poster. Detail lengkap ada di [`README-DEPLOY.md`](README-DEPLOY.md).
 
 Repo GitHub ini hanya menyimpan source. GitHub Pages sengaja tidak diaktifkan.
 
