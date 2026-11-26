@@ -6118,3 +6118,113 @@ body.cursor-hover .cursor-ring {
     height: clamp(19rem, 78vw, 26rem);
   }
 }
+
+/* ==========================================================================
+   3D floating media — posters and stills drift, then tilt toward the cursor
+   ========================================================================== */
+
+.wf-page [data-float],
+.wf-page .reveal[data-float] {
+  --wf-float-lift: 0px;
+  --wf-tilt-x: 0deg;
+  --wf-tilt-y: 0deg;
+  --wf-spin: 0deg;
+  --wf-depth: 1000px;
+  transform:
+    perspective(var(--wf-depth))
+    translate3d(0, var(--wf-float-lift), 0)
+    rotateX(var(--wf-tilt-x))
+    rotateY(var(--wf-tilt-y))
+    rotate(var(--wf-spin));
+  transform-style: preserve-3d;
+  transition: transform 280ms var(--ease), box-shadow 280ms var(--ease);
+}
+
+.wf-page .wf-hero__reel[data-float] {
+  --wf-spin: 3.2deg;
+  --wf-depth: 900px;
+}
+
+.wf-page .wf-feature__media[data-float] {
+  --wf-depth: 1400px;
+}
+
+.wf-page .wf-video-card__media[data-float],
+.wf-page .wf-wide-card__media[data-float] {
+  --wf-depth: 800px;
+}
+
+.wf-page .wf-case__media[data-float] {
+  --wf-depth: 1200px;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .wf-page [data-float]:hover {
+    --wf-float-lift: -6px;
+    box-shadow: 0 24px 48px -28px rgba(198, 255, 61, 0.45);
+  }
+
+  .wf-page .wf-hero__reel[data-float]:hover {
+    --wf-spin: 1deg;
+    --wf-float-lift: -4px;
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  @keyframes wf-media-drift {
+    0%,
+    100% {
+      translate: 0 0;
+    }
+    50% {
+      translate: 0 -9px;
+    }
+  }
+
+  .wf-page [data-float="idle"] {
+    animation: wf-media-drift 6.5s ease-in-out infinite;
+    will-change: transform;
+  }
+
+  .wf-page .wf-hero__reel[data-float="idle"] {
+    animation-delay: -1.2s;
+  }
+
+  .wf-page .wf-feature__media[data-float="idle"] {
+    animation-delay: -3.4s;
+  }
+
+  .wf-page .wf-about__portrait[data-float="idle"] {
+    animation-delay: -2.1s;
+  }
+
+  .wf-page .wf-video-card:nth-child(2n) [data-float="idle"] {
+    animation-delay: -1.7s;
+  }
+
+  .wf-page .wf-video-card:nth-child(3n) [data-float="idle"] {
+    animation-delay: -3.9s;
+  }
+
+  .wf-page .wf-wide-card:nth-child(2) [data-float="idle"] {
+    animation-delay: -2.6s;
+  }
+
+  .wf-page .wf-case:nth-child(2n) .wf-case__media[data-float="idle"] {
+    animation-delay: -2.3s;
+  }
+
+  .wf-page .wf-case:nth-child(3n) .wf-case__media[data-float="idle"] {
+    animation-delay: -4.6s;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .wf-page [data-float] {
+    --wf-float-lift: 0px;
+    --wf-tilt-x: 0deg;
+    --wf-tilt-y: 0deg;
+    animation: none;
+    transition: none;
+  }
+}

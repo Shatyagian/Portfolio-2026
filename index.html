@@ -31,9 +31,9 @@
   <link rel="preload" href="assets/fonts/space-grotesk-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="assets/fonts/dm-mono-400-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="assets/images/img-001.webp?v=2" as="image" type="image/webp">
-  <link rel="stylesheet" href="styles.css?v=14">
+  <link rel="stylesheet" href="styles.css?v=15">
   <script src="assets/vendor/page-flip.browser.js" defer></script>
-  <script src="app.js?v=14" defer></script>
+  <script src="app.js?v=15" defer></script>
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -122,7 +122,7 @@
           <span class="wf-hero__line wf-hero__line--accent reveal">&amp; Designer.</span>
         </h1>
 
-        <button class="wf-hero__reel reveal" type="button" data-project="teaser" aria-label="Play showreel — Teaser Presimposium">
+        <button class="wf-hero__reel reveal" type="button" data-float="idle" data-project="teaser" aria-label="Play showreel — Teaser Presimposium">
           <span class="wf-hero__reel-frame">
             <img src="assets/video/teaser-presimposium-poster.webp" alt="Frame from the Teaser Presimposium showreel" width="1280" height="720" fetchpriority="high" decoding="async">
           </span>
@@ -167,7 +167,7 @@
         <h2 id="about-title" class="wf-h2 wf-about__title reveal">Stories first.<br>Frames second.<br><em>Impact always.</em></h2>
 
         <div class="wf-about__grid">
-          <figure class="wf-about__portrait reveal">
+          <figure class="wf-about__portrait reveal" data-float="idle">
             <img src="assets/images/img-001.webp?v=2" alt="Shatya Gian at a dental industry event" width="1024" height="1536" loading="lazy" decoding="async">
             <figcaption><span>On location</span><span>Jakarta · 2026</span></figcaption>
           </figure>
@@ -200,7 +200,7 @@
         </div>
 
         <article class="wf-feature reveal">
-          <button class="wf-feature__media" type="button" data-project="teaser" aria-label="Play featured film: Teaser Presimposium">
+          <button class="wf-feature__media" type="button" data-float="idle" data-project="teaser" aria-label="Play featured film: Teaser Presimposium">
             <img src="assets/video/teaser-presimposium-poster.webp" alt="Cover of Teaser Presimposium" width="1280" height="720" loading="lazy" decoding="async">
             <span class="wf-feature__shade" aria-hidden="true"></span>
             <span class="wf-play" aria-hidden="true"></span>
@@ -223,7 +223,7 @@
           </div>
           <div class="wf-video-grid reveal">
             <article class="wf-video-card">
-              <button class="wf-video-card__media" type="button" data-project="recap1" aria-label="Play Video Recap 01">
+              <button class="wf-video-card__media" type="button" data-float="idle" data-project="recap1" aria-label="Play Video Recap 01">
                 <img src="assets/video/recap-01-poster.webp" alt="Cover of Video Recap 01" width="720" height="1280" loading="lazy" decoding="async">
                 <span class="wf-video-card__index" aria-hidden="true">01</span>
                 <span class="wf-play wf-play--sm" aria-hidden="true"></span>
@@ -232,7 +232,7 @@
             </article>
 
             <article class="wf-video-card">
-              <button class="wf-video-card__media" type="button" data-project="recap2" aria-label="Play Video Recap 02">
+              <button class="wf-video-card__media" type="button" data-float="idle" data-project="recap2" aria-label="Play Video Recap 02">
                 <img src="assets/video/recap-02-poster.webp" alt="Cover of Video Recap 02" width="720" height="1280" loading="lazy" decoding="async">
                 <span class="wf-video-card__index" aria-hidden="true">02</span>
                 <span class="wf-play wf-play--sm" aria-hidden="true"></span>
@@ -241,7 +241,7 @@
             </article>
 
             <article class="wf-video-card">
-              <button class="wf-video-card__media" type="button" data-project="recap3" aria-label="Play Video Recap 03">
+              <button class="wf-video-card__media" type="button" data-float="idle" data-project="recap3" aria-label="Play Video Recap 03">
                 <img src="assets/video/recap-03-poster.webp" alt="Cover of Video Recap 03" width="720" height="1280" loading="lazy" decoding="async">
                 <span class="wf-video-card__index" aria-hidden="true">03</span>
                 <span class="wf-play wf-play--sm" aria-hidden="true"></span>
@@ -250,7 +250,7 @@
             </article>
 
             <article class="wf-video-card">
-              <button class="wf-video-card__media" type="button" data-project="vid5" aria-label="Play AI Promotion Video 1">
+              <button class="wf-video-card__media" type="button" data-float="idle" data-project="vid5" aria-label="Play AI Promotion Video 1">
                 <img src="assets/video/vid5-poster.webp" alt="Cover of AI Promotion Video 1" width="720" height="1280" loading="lazy" decoding="async">
                 <span class="wf-video-card__index" aria-hidden="true">04</span>
                 <span class="wf-play wf-play--sm" aria-hidden="true"></span>
@@ -259,7 +259,7 @@
             </article>
 
             <article class="wf-video-card">
-              <button class="wf-video-card__media" type="button" data-project="vid6" aria-label="Play AI Promotion Video 2">
+              <button class="wf-video-card__media" type="button" data-float="idle" data-project="vid6" aria-label="Play AI Promotion Video 2">
                 <img src="assets/video/vid6-poster.webp" alt="Cover of AI Promotion Video 2" width="720" height="1280" loading="lazy" decoding="async">
                 <span class="wf-video-card__index" aria-hidden="true">05</span>
                 <span class="wf-play wf-play--sm" aria-hidden="true"></span>
@@ -268,7 +268,7 @@
             </article>
 
             <article class="wf-video-card">
-              <button class="wf-video-card__media" type="button" data-project="vid7" aria-label="Play AI Promotion Video 3">
+              <button class="wf-video-card__media" type="button" data-float="idle" data-project="vid7" aria-label="Play AI Promotion Video 3">
                 <img src="assets/video/vid7-poster.webp" alt="Cover of AI Promotion Video 3" width="720" height="1280" loading="lazy" decoding="async">
                 <span class="wf-video-card__index" aria-hidden="true">06</span>
                 <span class="wf-play wf-play--sm" aria-hidden="true"></span>
@@ -285,7 +285,7 @@
           </div>
           <div class="wf-wide-grid reveal">
             <article class="wf-wide-card">
-              <button class="wf-wide-card__media" type="button" data-project="teaser2" aria-label="Play Teaser Presimposium 2">
+              <button class="wf-wide-card__media" type="button" data-float="idle" data-project="teaser2" aria-label="Play Teaser Presimposium 2">
                 <img src="assets/video/teaser-presimposium-poster.webp" alt="Cover of Teaser Presimposium 2" width="1280" height="720" loading="lazy" decoding="async">
                 <span class="wf-play wf-play--sm" aria-hidden="true"></span>
               </button>
@@ -293,7 +293,7 @@
             </article>
 
             <article class="wf-wide-card">
-              <a class="wf-wide-card__media" href="https://www.youtube.com/watch?v=0nGJWEHhi38" target="_blank" rel="noopener" aria-label="Watch Film Assistant on YouTube">
+              <a class="wf-wide-card__media" data-float="idle" href="https://www.youtube.com/watch?v=0nGJWEHhi38" target="_blank" rel="noopener" aria-label="Watch Film Assistant on YouTube">
                 <img src="assets/images/img-054.webp" alt="Behind-the-scenes still from the short film production" width="540" height="960" loading="lazy" decoding="async">
                 <span class="wf-play wf-play--sm" aria-hidden="true">↗</span>
               </a>
@@ -318,14 +318,14 @@
 
         <div class="wf-cases">
           <article class="wf-case reveal">
-            <div class="wf-case__media wf-case__media--marketplace">
-              <button class="wf-shot" type="button" data-zoom="assets/images/stream1.jpg" data-zoom-alt="Live-shopping stream visual 1" aria-label="Zoom: Live-shopping stream visual 1">
+            <div class="wf-case__media wf-case__media--marketplace" data-float="idle">
+              <button class="wf-shot" type="button" data-float="still" data-zoom="assets/images/stream1.jpg" data-zoom-alt="Live-shopping stream visual 1" aria-label="Zoom: Live-shopping stream visual 1">
                 <img src="assets/images/stream1.jpg" alt="Live-shopping stream visual 1" width="404" height="717" loading="lazy" decoding="async">
               </button>
-              <button class="wf-shot" type="button" data-zoom="assets/images/stream2.jpg" data-zoom-alt="Live-shopping stream visual 2" aria-label="Zoom: Live-shopping stream visual 2">
+              <button class="wf-shot" type="button" data-float="still" data-zoom="assets/images/stream2.jpg" data-zoom-alt="Live-shopping stream visual 2" aria-label="Zoom: Live-shopping stream visual 2">
                 <img src="assets/images/stream2.jpg" alt="Live-shopping stream visual 2" width="397" height="707" loading="lazy" decoding="async">
               </button>
-              <button class="wf-shot" type="button" data-zoom="assets/images/stream3.jpg" data-zoom-alt="Live-shopping stream visual 3" aria-label="Zoom: Live-shopping stream visual 3">
+              <button class="wf-shot" type="button" data-float="still" data-zoom="assets/images/stream3.jpg" data-zoom-alt="Live-shopping stream visual 3" aria-label="Zoom: Live-shopping stream visual 3">
                 <img src="assets/images/stream3.jpg" alt="Live-shopping stream visual 3" width="403" height="717" loading="lazy" decoding="async">
               </button>
             </div>
@@ -338,14 +338,14 @@
           </article>
 
           <article class="wf-case reveal">
-            <div class="wf-case__media wf-case__media--print">
-              <button class="wf-shot" type="button" data-zoom="assets/images/catalog.webp" data-zoom-alt="Printed catalog page 1" aria-label="Zoom: Printed catalog page 1">
+            <div class="wf-case__media wf-case__media--print" data-float="idle">
+              <button class="wf-shot" type="button" data-float="still" data-zoom="assets/images/catalog.webp" data-zoom-alt="Printed catalog page 1" aria-label="Zoom: Printed catalog page 1">
                 <img src="assets/images/catalog.webp" alt="Printed catalog page 1" width="1672" height="941" loading="lazy" decoding="async">
               </button>
-              <button class="wf-shot" type="button" data-zoom="assets/images/catalog1.webp" data-zoom-alt="Printed catalog page 2" aria-label="Zoom: Printed catalog page 2">
+              <button class="wf-shot" type="button" data-float="still" data-zoom="assets/images/catalog1.webp" data-zoom-alt="Printed catalog page 2" aria-label="Zoom: Printed catalog page 2">
                 <img src="assets/images/catalog1.webp" alt="Printed catalog page 2" width="1672" height="941" loading="lazy" decoding="async">
               </button>
-              <button class="wf-shot" type="button" data-zoom="assets/images/catalog2.webp" data-zoom-alt="Printed catalog page 3" aria-label="Zoom: Printed catalog page 3">
+              <button class="wf-shot" type="button" data-float="still" data-zoom="assets/images/catalog2.webp" data-zoom-alt="Printed catalog page 3" aria-label="Zoom: Printed catalog page 3">
                 <img src="assets/images/catalog2.webp" alt="Printed catalog page 3" width="1672" height="941" loading="lazy" decoding="async">
               </button>
             </div>
@@ -358,11 +358,11 @@
           </article>
 
           <article class="wf-case reveal">
-            <div class="wf-case__media wf-case__media--event">
-              <button class="wf-shot" type="button" data-zoom="assets/images/img-033.webp" data-zoom-alt="3D booth concept shown in a design application" aria-label="Zoom: 3D booth concept shown in a design application">
+            <div class="wf-case__media wf-case__media--event" data-float="idle">
+              <button class="wf-shot" type="button" data-float="still" data-zoom="assets/images/img-033.webp" data-zoom-alt="3D booth concept shown in a design application" aria-label="Zoom: 3D booth concept shown in a design application">
                 <img src="assets/images/img-033.webp" alt="3D booth concept shown in a design application" width="960" height="467" loading="lazy" decoding="async">
               </button>
-              <button class="wf-shot" type="button" data-zoom="assets/images/Untitled-2.webp" data-zoom-alt="ISID 2026 event documentation" aria-label="Zoom: ISID 2026 event documentation">
+              <button class="wf-shot" type="button" data-float="still" data-zoom="assets/images/Untitled-2.webp" data-zoom-alt="ISID 2026 event documentation" aria-label="Zoom: ISID 2026 event documentation">
                 <img src="assets/images/Untitled-2.webp" alt="ISID 2026 event documentation" width="1920" height="933" loading="lazy" decoding="async">
               </button>
             </div>
@@ -375,14 +375,14 @@
           </article>
 
           <article class="wf-case reveal">
-            <div class="wf-case__media wf-case__media--chat">
-              <button class="wf-shot" type="button" data-zoom="assets/images/img-046.webp" data-zoom-alt="Automated Instagram direct-message response" aria-label="Zoom: Automated Instagram direct-message response">
+            <div class="wf-case__media wf-case__media--chat" data-float="idle">
+              <button class="wf-shot" type="button" data-float="still" data-zoom="assets/images/img-046.webp" data-zoom-alt="Automated Instagram direct-message response" aria-label="Zoom: Automated Instagram direct-message response">
                 <img src="assets/images/img-046.webp" alt="Automated Instagram direct-message response" width="373" height="656" loading="lazy" decoding="async">
               </button>
-              <button class="wf-shot" type="button" data-zoom="assets/images/img-048.webp" data-zoom-alt="Instagram welcome-message automation" aria-label="Zoom: Instagram welcome-message automation">
+              <button class="wf-shot" type="button" data-float="still" data-zoom="assets/images/img-048.webp" data-zoom-alt="Instagram welcome-message automation" aria-label="Zoom: Instagram welcome-message automation">
                 <img src="assets/images/img-048.webp" alt="Instagram welcome-message automation" width="357" height="655" loading="lazy" decoding="async">
               </button>
-              <button class="wf-shot" type="button" data-zoom="assets/images/img-050.webp" data-zoom-alt="Instagram response flow on mobile" aria-label="Zoom: Instagram response flow on mobile">
+              <button class="wf-shot" type="button" data-float="still" data-zoom="assets/images/img-050.webp" data-zoom-alt="Instagram response flow on mobile" aria-label="Zoom: Instagram response flow on mobile">
                 <img src="assets/images/img-050.webp" alt="Instagram response flow on mobile" width="376" height="653" loading="lazy" decoding="async">
               </button>
             </div>

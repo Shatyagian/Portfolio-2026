@@ -730,3 +730,28 @@ if (catalog && catalogStage && catalogBookEl) {
     });
   }
 })();
+
+/* 3D tilt for floating media ------------------------------------------------ */
+(() => {
+  const floaters = [...document.querySelectorAll("[data-float]")];
+  if (!floaters.length) return;
+
+  const finePointer = window.matchMedia("(hover: hover) and (pointer: fine)");
+  const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+
+  floaters.forEach((el) => {
+    el.addEventListener("pointermove", (event) => {
+      if (!finePointer.matches || reducedMotion.matches) return;
+      const rect = el.getBoundingClientRect();
+      const x = (event.clientX - rect.left) / rect.width - 0.5;
+      const y = (event.clientY - rect.top) / rect.height - 0.5;
+      el.style.setProperty("--wf-tilt-x", (-y * 8).toFixed(2) + "deg");
+      el.style.setProperty("--wf-tilt-y", (x * 10).toFixed(2) + "deg");
+    }, { passive: true });
+
+    el.addEventListener("pointerleave", () => {
+      el.style.setProperty("--wf-tilt-x", "0deg");
+      el.style.setProperty("--wf-tilt-y", "0deg");
+    });
+  });
+})();

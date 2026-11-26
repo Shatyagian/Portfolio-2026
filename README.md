@@ -26,6 +26,7 @@ Halaman-halaman utama:
 - Zoom gambar dan sertifikat dalam dialog
 - Katalog interaktif memakai `page-flip` 2.0.7 yang disimpan lokal
 - Reveal saat scroll, counter angka, marquee, dan progress bar
+- Animasi 3D melayang pada poster video & still, dengan tilt mengikuti kursor di desktop
 - Semua animasi otomatis dinonaktifkan ketika `prefers-reduced-motion` aktif
 - SEO: canonical, Open Graph, JSON-LD Person, `robots.txt`, `sitemap.xml`, `apple-touch-icon`
 - Aset kecil self-hosted; video MP4 disajikan dari Vercel Blob
