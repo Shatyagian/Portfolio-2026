@@ -12,7 +12,7 @@ Halaman-halaman utama:
 
 - Hero — *Video, Editor, & Designer* dengan showreel
 - About — ringkasan peran dan angka kunci
-- Video editing & motion — 1 film unggulan, 6 potongan short-form, 2 seleksi cinematic
+- Video editing & motion — 1 film unggulan, slider coverflow 3D untuk 6 potongan short-form, 2 seleksi cinematic
 - Graphic design — marketplace visual, visual cetak, event ISID 2026, automation chat
 - Product Catalog Showcase — flipbook katalog 12 halaman
 - Instagram results — ringkasan views, reach, followers, dan IPK dengan tautan ke halaman performance

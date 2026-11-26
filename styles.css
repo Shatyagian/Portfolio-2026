@@ -6228,3 +6228,185 @@ body.cursor-hover .cursor-ring {
     transition: none;
   }
 }
+
+/* Coverflow video reel ----------------------------------------------------- */
+
+.wf-reel {
+  --wf-card-w: clamp(11rem, 20vw, 17rem);
+  position: relative;
+}
+
+.wf-reel__stage {
+  position: relative;
+  height: calc(var(--wf-card-w) * 1.45 + 4.1rem);
+  overflow: hidden;
+  perspective: 1400px;
+  perspective-origin: 50% 42%;
+  touch-action: pan-y;
+  cursor: grab;
+}
+
+.wf-reel__stage.is-dragging {
+  cursor: grabbing;
+}
+
+.wf-reel__stage img {
+  -webkit-user-drag: none;
+  user-select: none;
+}
+
+.wf-reel__stage:focus-visible {
+  outline: 1px solid var(--wf-accent);
+  outline-offset: 5px;
+}
+
+.wf-reel__card {
+  position: absolute;
+  top: 1.4rem;
+  left: 50%;
+  width: var(--wf-card-w);
+  margin-left: calc(var(--wf-card-w) / -2);
+  transform:
+    translateX(var(--wf-x, 0%))
+    translateZ(var(--wf-z, 0px))
+    rotateY(var(--wf-ry, 0deg))
+    scale(var(--wf-scale, 1));
+  opacity: var(--wf-opacity, 1);
+  z-index: var(--wf-zindex, 1);
+  transform-style: preserve-3d;
+  transition: transform 620ms var(--ease), opacity 620ms var(--ease);
+}
+
+.wf-reel__card[data-deep] {
+  pointer-events: none;
+}
+
+.wf-reel__bar {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+  margin-top: 1.2rem;
+}
+
+.wf-reel__arrow {
+  display: grid;
+  width: 2.6rem;
+  height: 2.6rem;
+  place-items: center;
+  padding: 0;
+  border: 1px solid var(--wf-line);
+  border-radius: 999px;
+  background: transparent;
+  color: var(--wf-ink);
+  font-size: 1.05rem;
+  cursor: pointer;
+  transition: background 200ms ease, border-color 200ms ease, color 200ms ease;
+}
+
+.wf-reel__arrow:hover {
+  border-color: var(--wf-accent);
+  background: var(--wf-accent);
+  color: var(--wf-bg);
+}
+
+.wf-reel__arrow:focus-visible,
+.wf-reel__dots button:focus-visible {
+  outline: 1px solid var(--wf-accent);
+  outline-offset: 3px;
+}
+
+.wf-reel__track {
+  position: relative;
+  flex: 1;
+  height: 1px;
+  background: var(--wf-line);
+}
+
+.wf-reel__track span {
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: 16.6667%;
+  background: var(--wf-accent);
+  transition: width 500ms var(--ease);
+}
+
+.wf-reel__counter {
+  font-family: var(--mono);
+  font-size: 0.6rem;
+  letter-spacing: 0.1em;
+  color: var(--wf-ink-2);
+}
+
+.wf-reel__dots {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 0.9rem;
+}
+
+.wf-reel__dots button {
+  width: 6px;
+  height: 6px;
+  padding: 0;
+  border: 0;
+  border-radius: 999px;
+  background: var(--wf-line);
+  cursor: pointer;
+  transition: width 240ms var(--ease), background 240ms ease;
+}
+
+.wf-reel__dots button[aria-selected="true"] {
+  width: 20px;
+  background: var(--wf-accent);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  @keyframes wf-reel-levitate {
+    0%,
+    100% {
+      translate: 0 0;
+      rotate: y -2.5deg;
+    }
+    50% {
+      translate: 0 -11px;
+      rotate: y 2.5deg;
+    }
+  }
+
+  .wf-reel__card {
+    animation: wf-reel-levitate 7.5s ease-in-out infinite;
+    animation-delay: var(--wf-phase, 0s);
+    will-change: transform;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .wf-reel__card {
+    animation: none;
+    transition: none;
+  }
+
+  .wf-reel__track span {
+    transition: none;
+  }
+}
+
+@media (max-width: 900px) {
+  .wf-reel {
+    --wf-card-w: clamp(10rem, 28vw, 14rem);
+  }
+}
+
+@media (max-width: 600px) {
+  .wf-reel {
+    --wf-card-w: min(64vw, 14rem);
+  }
+
+  .wf-reel__bar {
+    gap: 0.6rem;
+  }
+
+  .wf-reel__arrow {
+    width: 2.3rem;
+    height: 2.3rem;
+  }
+}
