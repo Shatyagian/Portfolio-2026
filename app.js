@@ -891,33 +891,32 @@ if (catalog && catalogStage && catalogBookEl) {
   });
 })();
 
-/* About teaser card stack -------------------------------------------------- */
+/* About teaser stack ------------------------------------------------------- */
 (() => {
   document.querySelectorAll("[data-teaser-stack]").forEach((stack) => {
-    const cards = [...stack.querySelectorAll("[data-teaser-card]")];
+    const media = [...stack.querySelectorAll("[data-teaser-media]")];
     const prev = stack.querySelector("[data-teaser-prev]");
     const next = stack.querySelector("[data-teaser-next]");
-    const current = stack.querySelector("[data-teaser-current]");
-    if (cards.length < 2) return;
+    const status = stack.querySelector("[data-teaser-status]");
+    if (media.length < 2) return;
 
-    let active = Math.max(0, cards.findIndex((card) => card.hasAttribute("data-active")));
-    const pad = (value) => String(value).padStart(2, "0");
+    let active = Math.max(0, media.findIndex((item) => item.hasAttribute("data-active")));
 
     const render = () => {
-      cards.forEach((card, index) => {
-        if (index === active) card.setAttribute("data-active", "");
-        else card.removeAttribute("data-active");
+      media.forEach((item, index) => {
+        if (index === active) item.setAttribute("data-active", "");
+        else item.removeAttribute("data-active");
       });
-      current.textContent = pad(active + 1);
+      status.textContent = "Showing teaser " + (active + 1) + " of " + media.length + ".";
     };
 
     prev?.addEventListener("click", () => {
-      active = (active - 1 + cards.length) % cards.length;
+      active = (active - 1 + media.length) % media.length;
       render();
     });
 
     next?.addEventListener("click", () => {
-      active = (active + 1) % cards.length;
+      active = (active + 1) % media.length;
       render();
     });
 

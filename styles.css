@@ -4543,47 +4543,58 @@ body.cursor-hover .cursor-ring {
 
 .wf-teaser-stack__stage {
   position: relative;
-  height: calc(var(--wf-teaser-w) * 0.5625 + 4.6rem);
+  height: calc(var(--wf-teaser-w) * 0.5625 + 1.2rem);
   perspective: 1200px;
 }
 
-.wf-teaser-card {
+.wf-teaser-media {
   position: absolute;
   top: 0;
   left: 50%;
   width: var(--wf-teaser-w);
   margin-left: calc(var(--wf-teaser-w) / -2);
-  transform:
-    translate(var(--wf-tx, 0%), var(--wf-ty, 0%))
-    rotate(var(--wf-rot, 0deg))
-    scale(var(--wf-scale, 1));
-  opacity: var(--wf-card-opacity, 1);
-  z-index: var(--wf-card-z, 1);
-  transform-style: preserve-3d;
-  transition: transform 560ms var(--ease), opacity 560ms var(--ease), box-shadow 560ms var(--ease);
+  aspect-ratio: 16 / 9;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  overflow: hidden;
+  background: #000;
+  cursor: pointer;
+  transform: translate(var(--wf-tx, 0%), var(--wf-ty, 0%)) rotate(var(--wf-rot, 0deg));
+  z-index: var(--wf-media-z, 1);
+  transition: transform 560ms var(--ease);
 }
 
-.wf-teaser-card:not([data-active]) {
-  --wf-tx: 7%;
-  --wf-ty: -5%;
+.wf-teaser-media:not([data-active]) {
+  --wf-tx: 6%;
+  --wf-ty: -4%;
   --wf-rot: 4deg;
-  --wf-scale: 0.94;
-  --wf-card-opacity: 0.82;
-  --wf-card-z: 1;
+  --wf-media-z: 1;
 }
 
-.wf-teaser-card[data-active] {
+.wf-teaser-media[data-active] {
   --wf-tx: 0%;
   --wf-ty: 0%;
   --wf-rot: 0deg;
-  --wf-scale: 1;
-  --wf-card-opacity: 1;
-  --wf-card-z: 2;
-  box-shadow: 0 24px 50px -30px rgba(198, 255, 61, 0.4);
+  --wf-media-z: 2;
 }
 
-.wf-teaser-card .wf-video-card__media {
-  aspect-ratio: 16 / 9;
+.wf-teaser-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 600ms var(--ease);
+}
+
+.wf-teaser-media:hover img {
+  transform: scale(1.02);
+}
+
+.wf-teaser-media .wf-play {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  translate: -50% -50%;
 }
 
 .wf-teaser-stack__bar {
@@ -5919,7 +5930,8 @@ body.cursor-hover .cursor-ring {
     transition: none;
   }
 
-  .wf-teaser-card {
+  .wf-teaser-media,
+  .wf-teaser-media img {
     transition: none;
   }
 
