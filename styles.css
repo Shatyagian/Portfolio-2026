@@ -6182,6 +6182,10 @@ body.cursor-hover .cursor-ring {
 
 .wf-page .wf-about__reel[data-float] {
   --wf-depth: 900px;
+  translate: 0px;
+  rotate: 0deg;
+  scale: 1;
+  box-shadow: 0 18px 42px -30px rgba(198, 255, 61, 0.35);
 }
 
 .wf-page .wf-hero__portrait[data-float] {
@@ -6229,13 +6233,29 @@ body.cursor-hover .cursor-ring {
     }
   }
 
+  @keyframes wf-about-reel-float {
+    0%,
+    100% {
+      translate: 0 0;
+      rotate: -0.45deg;
+      scale: 1;
+    }
+    50% {
+      translate: 0 -16px;
+      rotate: 0.45deg;
+      scale: 1.01;
+    }
+  }
+
   .wf-page [data-float="idle"] {
     animation: wf-media-drift 6.5s ease-in-out infinite;
     will-change: transform;
   }
 
   .wf-page .wf-about__reel[data-float="idle"] {
+    animation: wf-about-reel-float 5.6s ease-in-out infinite;
     animation-delay: -1.2s;
+    will-change: translate, rotate, scale;
   }
 
   .wf-page .wf-feature__media[data-float="idle"] {
