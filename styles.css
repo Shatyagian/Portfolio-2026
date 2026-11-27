@@ -4577,7 +4577,7 @@ body.cursor-hover .cursor-ring {
 }
 
 .wf-teaser-media:not([data-active]) {
-  --wf-tx: 8%;
+  --wf-tx: 16%;
   --wf-ty: 0%;
   --wf-flip: 16deg;
   --wf-scale: 0.94;
