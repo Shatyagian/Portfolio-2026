@@ -4532,19 +4532,20 @@ body.cursor-hover .cursor-ring {
 }
 
 .wf-about__reel-shell {
-  width: min(70%, 60rem);
+  width: min(82%, 68rem);
   margin: clamp(2.5rem, 6vw, 4.5rem) auto 0;
 }
 
 .wf-teaser-stack {
-  --wf-teaser-w: clamp(18rem, 46vw, 46rem);
+  --wf-teaser-w: clamp(22rem, 58vw, 56rem);
   position: relative;
 }
 
 .wf-teaser-stack__stage {
   position: relative;
   height: calc(var(--wf-teaser-w) * 0.5625 + 1.2rem);
-  perspective: 1200px;
+  perspective: 1400px;
+  perspective-origin: 50% 50%;
 }
 
 .wf-teaser-media {
@@ -4562,12 +4563,13 @@ body.cursor-hover .cursor-ring {
   cursor: pointer;
   transform:
     translate(var(--wf-tx, 0%), var(--wf-ty, 0%))
-    rotate(var(--wf-rot, 0deg))
+    rotateY(var(--wf-flip, 0deg))
     scale(var(--wf-scale, 1));
-  opacity: var(--wf-card-opacity, 1);
+  opacity: 1;
   z-index: var(--wf-media-z, 1);
   box-shadow: 0 18px 42px -30px rgba(198, 255, 61, 0.35);
-  transition: transform 560ms var(--ease), opacity 560ms var(--ease), box-shadow 560ms var(--ease), border-color 200ms ease;
+  transform-style: preserve-3d;
+  transition: transform 560ms var(--ease), box-shadow 560ms var(--ease), border-color 200ms ease;
 }
 
 .wf-teaser-media:hover {
@@ -4575,20 +4577,18 @@ body.cursor-hover .cursor-ring {
 }
 
 .wf-teaser-media:not([data-active]) {
-  --wf-tx: 6%;
-  --wf-ty: -4%;
-  --wf-rot: 4deg;
+  --wf-tx: 8%;
+  --wf-ty: 0%;
+  --wf-flip: 16deg;
   --wf-scale: 0.94;
-  --wf-card-opacity: 0.82;
   --wf-media-z: 1;
 }
 
 .wf-teaser-media[data-active] {
   --wf-tx: 0%;
   --wf-ty: 0%;
-  --wf-rot: 0deg;
+  --wf-flip: 0deg;
   --wf-scale: 1;
-  --wf-card-opacity: 1;
   --wf-media-z: 2;
   box-shadow: 0 24px 50px -30px rgba(198, 255, 61, 0.4);
 }
@@ -5758,7 +5758,7 @@ body.cursor-hover .cursor-ring {
   }
 
   .wf-teaser-stack {
-    --wf-teaser-w: min(78vw, 34rem);
+    --wf-teaser-w: min(88vw, 42rem);
   }
 
   .wf-credentials__grid {
@@ -5822,7 +5822,7 @@ body.cursor-hover .cursor-ring {
   }
 
   .wf-teaser-stack {
-    --wf-teaser-w: min(86vw, 26rem);
+    --wf-teaser-w: min(94vw, 32rem);
   }
 
   .wf-hero__foot {
