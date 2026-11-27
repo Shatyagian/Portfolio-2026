@@ -31,9 +31,9 @@
   <link rel="preload" href="assets/fonts/space-grotesk-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="assets/fonts/dm-mono-400-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="assets/images/img-001.webp?v=2" as="image" type="image/webp">
-  <link rel="stylesheet" href="styles.css?v=20">
+  <link rel="stylesheet" href="styles.css?v=21">
   <script src="assets/vendor/page-flip.browser.js" defer></script>
-  <script src="app.js?v=17" defer></script>
+  <script src="app.js?v=18" defer></script>
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -218,12 +218,12 @@
 
         <div class="wf-video-block wf-video-reel-block">
           <div class="wf-video-block__head reveal">
-            <p class="wf-label">Short-form / vertical</p>
-            <p class="wf-label">Drag · arrows · 06 cuts</p>
+            <p class="wf-label">Short-form / vertical · Recap</p>
+            <p class="wf-label">Drag · arrows · 03 cuts</p>
           </div>
 
-          <div class="wf-reel reveal" data-reel aria-roledescription="carousel" aria-label="Selected short-form videos">
-            <div class="wf-reel__stage" data-reel-stage tabindex="0" role="group" aria-label="Video slides">
+          <div class="wf-reel reveal" data-reel aria-roledescription="carousel" aria-label="Selected video recaps">
+            <div class="wf-reel__stage" data-reel-stage tabindex="0" role="group" aria-label="Video recap slides">
               <article class="wf-video-card wf-reel__card" data-reel-card>
                 <button class="wf-video-card__media" type="button" data-float="still" data-project="recap1" aria-label="Play Video Recap 01">
                   <img src="assets/video/recap-01-poster.webp" alt="Cover of Video Recap 01" width="720" height="1280" loading="lazy" decoding="async">
@@ -250,29 +250,53 @@
                 </button>
                 <div class="wf-video-card__info"><h3>Video Recap 03</h3><p>Event recap · 9:16</p></div>
               </article>
+            </div>
 
+            <div class="wf-reel__bar">
+              <button class="wf-reel__arrow" type="button" data-reel-prev aria-label="Previous video recap"><span aria-hidden="true">←</span></button>
+              <div class="wf-reel__track" aria-hidden="true"><span data-reel-progress></span></div>
+              <p class="wf-reel__counter" aria-live="polite"><span data-reel-current>01</span><span aria-hidden="true"> / 03</span></p>
+              <button class="wf-reel__arrow" type="button" data-reel-next aria-label="Next video recap"><span aria-hidden="true">→</span></button>
+            </div>
+
+            <div class="wf-reel__dots" role="tablist" aria-label="Choose video recap">
+              <button type="button" data-reel-dot aria-label="Show video recap 1" aria-selected="true"></button>
+              <button type="button" data-reel-dot aria-label="Show video recap 2" aria-selected="false"></button>
+              <button type="button" data-reel-dot aria-label="Show video recap 3" aria-selected="false"></button>
+            </div>
+          </div>
+        </div>
+
+        <div class="wf-video-block wf-video-reel-block">
+          <div class="wf-video-block__head reveal">
+            <p class="wf-label">Short-form / vertical · AI promo</p>
+            <p class="wf-label">Drag · arrows · 03 cuts</p>
+          </div>
+
+          <div class="wf-reel reveal" data-reel aria-roledescription="carousel" aria-label="Selected AI promotion videos">
+            <div class="wf-reel__stage" data-reel-stage tabindex="0" role="group" aria-label="AI promotion slides">
               <article class="wf-video-card wf-reel__card" data-reel-card>
-                <button class="wf-video-card__media" type="button" data-float="still" data-project="vid5" aria-label="Play AI Promotion Video 1">
-                  <img src="assets/video/vid5-poster.webp" alt="Cover of AI Promotion Video 1" width="720" height="1280" loading="lazy" decoding="async">
-                  <span class="wf-video-card__index" aria-hidden="true">04</span>
+                <button class="wf-video-card__media" type="button" data-float="still" data-project="vid5" aria-label="Play AI Promotion Video 01">
+                  <img src="assets/video/vid5-poster.webp" alt="Cover of AI Promotion Video 01" width="720" height="1280" loading="lazy" decoding="async">
+                  <span class="wf-video-card__index" aria-hidden="true">01</span>
                   <span class="wf-play wf-play--sm" aria-hidden="true"></span>
                 </button>
                 <div class="wf-video-card__info"><h3>AI Promotion 01</h3><p>AI-assisted promo · 9:16</p></div>
               </article>
 
               <article class="wf-video-card wf-reel__card" data-reel-card>
-                <button class="wf-video-card__media" type="button" data-float="still" data-project="vid6" aria-label="Play AI Promotion Video 2">
-                  <img src="assets/video/vid6-poster.webp" alt="Cover of AI Promotion Video 2" width="720" height="1280" loading="lazy" decoding="async">
-                  <span class="wf-video-card__index" aria-hidden="true">05</span>
+                <button class="wf-video-card__media" type="button" data-float="still" data-project="vid6" aria-label="Play AI Promotion Video 02">
+                  <img src="assets/video/vid6-poster.webp" alt="Cover of AI Promotion Video 02" width="720" height="1280" loading="lazy" decoding="async">
+                  <span class="wf-video-card__index" aria-hidden="true">02</span>
                   <span class="wf-play wf-play--sm" aria-hidden="true"></span>
                 </button>
                 <div class="wf-video-card__info"><h3>AI Promotion 02</h3><p>AI-assisted promo · 9:16</p></div>
               </article>
 
               <article class="wf-video-card wf-reel__card" data-reel-card>
-                <button class="wf-video-card__media" type="button" data-float="still" data-project="vid7" aria-label="Play AI Promotion Video 3">
-                  <img src="assets/video/vid7-poster.webp" alt="Cover of AI Promotion Video 3" width="720" height="1280" loading="lazy" decoding="async">
-                  <span class="wf-video-card__index" aria-hidden="true">06</span>
+                <button class="wf-video-card__media" type="button" data-float="still" data-project="vid7" aria-label="Play AI Promotion Video 03">
+                  <img src="assets/video/vid7-poster.webp" alt="Cover of AI Promotion Video 03" width="720" height="1280" loading="lazy" decoding="async">
+                  <span class="wf-video-card__index" aria-hidden="true">03</span>
                   <span class="wf-play wf-play--sm" aria-hidden="true"></span>
                 </button>
                 <div class="wf-video-card__info"><h3>AI Promotion 03</h3><p>AI-assisted promo · 9:16</p></div>
@@ -280,19 +304,16 @@
             </div>
 
             <div class="wf-reel__bar">
-              <button class="wf-reel__arrow" type="button" data-reel-prev aria-label="Previous video"><span aria-hidden="true">←</span></button>
+              <button class="wf-reel__arrow" type="button" data-reel-prev aria-label="Previous AI promotion video"><span aria-hidden="true">←</span></button>
               <div class="wf-reel__track" aria-hidden="true"><span data-reel-progress></span></div>
-              <p class="wf-reel__counter" aria-live="polite"><span data-reel-current>01</span><span aria-hidden="true"> / 06</span></p>
-              <button class="wf-reel__arrow" type="button" data-reel-next aria-label="Next video"><span aria-hidden="true">→</span></button>
+              <p class="wf-reel__counter" aria-live="polite"><span data-reel-current>01</span><span aria-hidden="true"> / 03</span></p>
+              <button class="wf-reel__arrow" type="button" data-reel-next aria-label="Next AI promotion video"><span aria-hidden="true">→</span></button>
             </div>
 
-            <div class="wf-reel__dots" role="tablist" aria-label="Choose video">
-              <button type="button" data-reel-dot aria-label="Show video 1" aria-selected="true"></button>
-              <button type="button" data-reel-dot aria-label="Show video 2" aria-selected="false"></button>
-              <button type="button" data-reel-dot aria-label="Show video 3" aria-selected="false"></button>
-              <button type="button" data-reel-dot aria-label="Show video 4" aria-selected="false"></button>
-              <button type="button" data-reel-dot aria-label="Show video 5" aria-selected="false"></button>
-              <button type="button" data-reel-dot aria-label="Show video 6" aria-selected="false"></button>
+            <div class="wf-reel__dots" role="tablist" aria-label="Choose AI promotion video">
+              <button type="button" data-reel-dot aria-label="Show AI promotion video 1" aria-selected="true"></button>
+              <button type="button" data-reel-dot aria-label="Show AI promotion video 2" aria-selected="false"></button>
+              <button type="button" data-reel-dot aria-label="Show AI promotion video 3" aria-selected="false"></button>
             </div>
           </div>
         </div>

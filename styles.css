@@ -6238,7 +6238,7 @@ body.cursor-hover .cursor-ring {
 /* Coverflow video reel ----------------------------------------------------- */
 
 .wf-reel {
-  --wf-card-w: clamp(11rem, 20vw, 17rem);
+  --wf-card-w: clamp(14rem, 26vw, 21rem);
   position: relative;
 }
 
@@ -6331,7 +6331,7 @@ body.cursor-hover .cursor-ring {
 .wf-reel__track span {
   position: absolute;
   inset: 0 auto 0 0;
-  width: 16.6667%;
+  width: 33.3333%;
   background: var(--wf-accent);
   transition: width 500ms var(--ease);
 }
@@ -6398,13 +6398,13 @@ body.cursor-hover .cursor-ring {
 
 @media (max-width: 900px) {
   .wf-reel {
-    --wf-card-w: clamp(10rem, 28vw, 14rem);
+    --wf-card-w: clamp(12rem, 32vw, 18rem);
   }
 }
 
 @media (max-width: 600px) {
   .wf-reel {
-    --wf-card-w: min(64vw, 14rem);
+    --wf-card-w: min(82vw, 19rem);
   }
 
   .wf-reel__bar {

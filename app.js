@@ -758,118 +758,117 @@ if (catalog && catalogStage && catalogBookEl) {
 
 /* Coverflow video reel ----------------------------------------------------- */
 (() => {
-  const reel = document.querySelector("[data-reel]");
-  if (!reel) return;
+  document.querySelectorAll("[data-reel]").forEach((reel) => {
+    const stage = reel.querySelector("[data-reel-stage]");
+    const cards = [...reel.querySelectorAll("[data-reel-card]")];
+    const dots = [...reel.querySelectorAll("[data-reel-dot]")];
+    const prev = reel.querySelector("[data-reel-prev]");
+    const next = reel.querySelector("[data-reel-next]");
+    const current = reel.querySelector("[data-reel-current]");
+    const progress = reel.querySelector("[data-reel-progress]");
+    if (!stage || cards.length < 2) return;
 
-  const stage = reel.querySelector("[data-reel-stage]");
-  const cards = [...reel.querySelectorAll("[data-reel-card]")];
-  const dots = [...reel.querySelectorAll("[data-reel-dot]")];
-  const prev = reel.querySelector("[data-reel-prev]");
-  const next = reel.querySelector("[data-reel-next]");
-  const current = reel.querySelector("[data-reel-current]");
-  const progress = reel.querySelector("[data-reel-progress]");
-  if (!stage || cards.length < 2) return;
+    const count = cards.length;
+    let active = 0;
+    const pad = (value) => String(value).padStart(2, "0");
 
-  const count = cards.length;
-  let active = 0;
-  const pad = (value) => String(value).padStart(2, "0");
+    const render = () => {
+      cards.forEach((card, index) => {
+        let offset = index - active;
+        if (offset > count / 2) offset -= count;
+        if (offset < -count / 2) offset += count;
 
-  const render = () => {
-    cards.forEach((card, index) => {
-      let offset = index - active;
-      if (offset > count / 2) offset -= count;
-      if (offset < -count / 2) offset += count;
+        const distance = Math.abs(offset);
+        const spread = distance === 1 ? 42 : distance === 2 ? 72 : 95;
+        const x = Math.sign(offset) * spread;
 
-      const distance = Math.abs(offset);
-      const spread = distance === 1 ? 42 : distance === 2 ? 72 : 95;
-      const x = Math.sign(offset) * spread;
+        card.style.setProperty("--wf-x", x + "%");
+        card.style.setProperty("--wf-z", (distance === 0 ? 120 : distance * -120) + "px");
+        card.style.setProperty("--wf-ry", (offset * -27) + "deg");
+        card.style.setProperty("--wf-scale", (1 - distance * 0.1).toFixed(2));
+        card.style.setProperty("--wf-opacity", (1 - distance * 0.27).toFixed(2));
+        card.style.setProperty("--wf-zindex", String(20 - distance));
+        card.style.setProperty("--wf-phase", (-index * 0.9).toFixed(1) + "s");
 
-      card.style.setProperty("--wf-x", x + "%");
-      card.style.setProperty("--wf-z", (distance === 0 ? 120 : distance * -120) + "px");
-      card.style.setProperty("--wf-ry", (offset * -27) + "deg");
-      card.style.setProperty("--wf-scale", (1 - distance * 0.1).toFixed(2));
-      card.style.setProperty("--wf-opacity", (1 - distance * 0.27).toFixed(2));
-      card.style.setProperty("--wf-zindex", String(20 - distance));
-      card.style.setProperty("--wf-phase", (-index * 0.9).toFixed(1) + "s");
+        if (distance > 2) card.setAttribute("data-deep", "");
+        else card.removeAttribute("data-deep");
+      });
 
-      if (distance > 2) card.setAttribute("data-deep", "");
-      else card.removeAttribute("data-deep");
+      dots.forEach((dot, index) => {
+        dot.setAttribute("aria-selected", index === active ? "true" : "false");
+      });
+      current.textContent = pad(active + 1);
+      progress.style.width = (((active + 1) / count) * 100).toFixed(4) + "%";
+    };
+
+    const go = (index) => {
+      active = (index + count) % count;
+      render();
+    };
+
+    prev?.addEventListener("click", () => go(active - 1));
+    next?.addEventListener("click", () => go(active + 1));
+    dots.forEach((dot, index) => dot.addEventListener("click", () => go(index)));
+
+    stage.addEventListener("keydown", (event) => {
+      if (event.key === "ArrowRight") {
+        event.preventDefault();
+        go(active + 1);
+      } else if (event.key === "ArrowLeft") {
+        event.preventDefault();
+        go(active - 1);
+      }
     });
 
-    dots.forEach((dot, index) => {
-      dot.setAttribute("aria-selected", index === active ? "true" : "false");
-    });
-    current.textContent = pad(active + 1);
-    progress.style.width = (((active + 1) / count) * 100).toFixed(4) + "%";
-  };
+    let start = null;
+    let suppressClick = false;
 
-  const go = (index) => {
-    active = (index + count) % count;
+    stage.addEventListener("dragstart", (event) => event.preventDefault());
+
+    stage.addEventListener("pointerdown", (event) => {
+      if (event.pointerType === "mouse" && event.button !== 0) return;
+      start = { x: event.clientX, y: event.clientY };
+      stage.classList.add("is-dragging");
+    });
+
+    const endDrag = (event) => {
+      if (!start) return;
+      const dx = event.clientX - start.x;
+      const dy = event.clientY - start.y;
+      start = null;
+      stage.classList.remove("is-dragging");
+
+      if (Math.abs(dx) > 45 && Math.abs(dx) > Math.abs(dy)) {
+        suppressClick = true;
+        go(active + (dx < 0 ? 1 : -1));
+        window.setTimeout(() => { suppressClick = false; }, 250);
+      }
+    };
+
+    stage.addEventListener("pointerup", endDrag);
+    stage.addEventListener("pointercancel", () => {
+      start = null;
+      stage.classList.remove("is-dragging");
+    });
+
+    stage.addEventListener("click", (event) => {
+      if (suppressClick) {
+        event.preventDefault();
+        event.stopImmediatePropagation();
+        return;
+      }
+
+      const card = event.target.closest("[data-reel-card]");
+      if (!card) return;
+
+      const index = cards.indexOf(card);
+      if (index !== active) {
+        event.preventDefault();
+        event.stopImmediatePropagation();
+        go(index);
+      }
+    }, true);
+
     render();
-  };
-
-  prev?.addEventListener("click", () => go(active - 1));
-  next?.addEventListener("click", () => go(active + 1));
-  dots.forEach((dot, index) => dot.addEventListener("click", () => go(index)));
-
-  stage.addEventListener("keydown", (event) => {
-    if (event.key === "ArrowRight") {
-      event.preventDefault();
-      go(active + 1);
-    } else if (event.key === "ArrowLeft") {
-      event.preventDefault();
-      go(active - 1);
-    }
   });
-
-  let start = null;
-  let suppressClick = false;
-
-  stage.addEventListener("dragstart", (event) => event.preventDefault());
-
-  stage.addEventListener("pointerdown", (event) => {
-    if (event.pointerType === "mouse" && event.button !== 0) return;
-    start = { x: event.clientX, y: event.clientY };
-    stage.classList.add("is-dragging");
-  });
-
-  const endDrag = (event) => {
-    if (!start) return;
-    const dx = event.clientX - start.x;
-    const dy = event.clientY - start.y;
-    start = null;
-    stage.classList.remove("is-dragging");
-
-    if (Math.abs(dx) > 45 && Math.abs(dx) > Math.abs(dy)) {
-      suppressClick = true;
-      go(active + (dx < 0 ? 1 : -1));
-      window.setTimeout(() => { suppressClick = false; }, 250);
-    }
-  };
-
-  stage.addEventListener("pointerup", endDrag);
-  stage.addEventListener("pointercancel", () => {
-    start = null;
-    stage.classList.remove("is-dragging");
-  });
-
-  stage.addEventListener("click", (event) => {
-    if (suppressClick) {
-      event.preventDefault();
-      event.stopImmediatePropagation();
-      return;
-    }
-
-    const card = event.target.closest("[data-reel-card]");
-    if (!card) return;
-
-    const index = cards.indexOf(card);
-    if (index !== active) {
-      event.preventDefault();
-      event.stopImmediatePropagation();
-      go(index);
-    }
-  }, true);
-
-  render();
 })();
