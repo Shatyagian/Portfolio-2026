@@ -1833,7 +1833,8 @@ section[id] {
     grid-template-columns: repeat(6, minmax(0, 1fr));
   }
 
-  .project-gallery--event {
+  .project-gallery--event,
+  .project-gallery--video {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
@@ -2523,6 +2524,10 @@ section[id] {
   background: #14110e;
 }
 
+.project-card--wide .visual-recap {
+  aspect-ratio: 16 / 10;
+}
+
 .recap-shot {
   position: relative;
   display: block;
@@ -2628,6 +2633,7 @@ section[id] {
 @media (max-width: 600px) {
   .project-card--wide .visual-recap {
     aspect-ratio: auto;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .recap-shot {
