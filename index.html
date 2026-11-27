@@ -31,9 +31,9 @@
   <link rel="preload" href="assets/fonts/space-grotesk-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="assets/fonts/dm-mono-400-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="assets/images/img-001.webp?v=2" as="image" type="image/webp">
-  <link rel="stylesheet" href="styles.css?v=30">
+  <link rel="stylesheet" href="styles.css?v=31">
   <script src="assets/vendor/page-flip.browser.js" defer></script>
-  <script src="app.js?v=24" defer></script>
+  <script src="app.js?v=25" defer></script>
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -88,8 +88,7 @@
         <li><a href="#design"><span>02</span>Design</a></li>
         <li><a href="#catalog"><span>03</span>Catalog</a></li>
         <li><a href="#results"><span>04</span>Results</a></li>
-        <li><a href="#about"><span>05</span>About</a></li>
-        <li><a href="#contact"><span>06</span>Contact</a></li>
+        <li><a href="#contact"><span>05</span>Contact</a></li>
       </ul>
       <div class="wf-nav__foot">
         <div>
@@ -143,6 +142,30 @@
       </div>
     </section>
 
+    <section class="wf-section wf-section--dark wf-feature-reel-section" aria-label="Featured teaser">
+      <div class="wf-about__reel-shell reveal">
+        <div class="wf-teaser-stack" data-teaser-stack role="region" aria-roledescription="carousel" aria-label="Teaser Presimposium cuts">
+          <div class="wf-teaser-stack__stage" role="group" aria-label="Teaser videos">
+            <button class="wf-teaser-media" type="button" data-teaser-media data-active data-project="teaserAbout1" aria-label="Play Teaser Presimposium">
+              <img src="assets/video/teaser-about-01.webp" alt="Frame from Teaser Presimposium" width="1280" height="720" loading="lazy" decoding="async">
+              <span class="wf-play" aria-hidden="true"></span>
+            </button>
+
+            <button class="wf-teaser-media" type="button" data-teaser-media data-project="teaserAbout2" aria-label="Play Teaser Presimposium 2">
+              <img src="assets/video/teaser-about-02.webp" alt="Frame from Teaser Presimposium 2" width="1280" height="720" loading="lazy" decoding="async">
+              <span class="wf-play" aria-hidden="true"></span>
+            </button>
+          </div>
+
+          <div class="wf-teaser-stack__bar">
+            <button class="wf-reel__arrow" type="button" data-teaser-prev aria-label="Previous teaser"><span aria-hidden="true">←</span></button>
+            <p class="sr-only" role="status" aria-live="polite" data-teaser-status>Showing teaser 1 of 2.</p>
+            <button class="wf-reel__arrow" type="button" data-teaser-next aria-label="Next teaser"><span aria-hidden="true">→</span></button>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <div class="wf-ticker" aria-hidden="true">
       <div class="wf-ticker__track">
         <div class="wf-ticker__group">
@@ -153,48 +176,6 @@
         </div>
       </div>
     </div>
-
-    <section class="wf-section wf-section--paper" id="about" aria-labelledby="about-title">
-      <div class="wf-wrap">
-        <div class="wf-section__head reveal">
-          <p class="wf-label" id="about-title"><span>01</span> About</p>
-          <p class="wf-label">Jakarta, Indonesia</p>
-        </div>
-
-        <div class="wf-about__grid">
-          <div class="wf-about__copy reveal">
-            <div class="wf-facts">
-              <div><strong data-count="5" data-count-suffix="+">5+</strong><span>Years of visual craft</span></div>
-              <div><strong data-count="40">40</strong><span>Posts analyzed</span></div>
-              <div><strong data-count="12">12</strong><span>Field marketing members led</span></div>
-              <div><strong data-count="3" data-count-pad="2">03</strong><span>Core Adobe tools</span></div>
-            </div>
-          </div>
-        </div>
-
-        <div class="wf-about__reel-shell reveal">
-          <div class="wf-teaser-stack" data-teaser-stack role="region" aria-roledescription="carousel" aria-label="Teaser Presimposium cuts">
-            <div class="wf-teaser-stack__stage" role="group" aria-label="Teaser videos">
-              <button class="wf-teaser-media" type="button" data-teaser-media data-active data-project="teaserAbout1" aria-label="Play Teaser Presimposium">
-                <img src="assets/video/teaser-about-01.webp" alt="Frame from Teaser Presimposium" width="1280" height="720" loading="lazy" decoding="async">
-                <span class="wf-play" aria-hidden="true"></span>
-              </button>
-
-              <button class="wf-teaser-media" type="button" data-teaser-media data-project="teaserAbout2" aria-label="Play Teaser Presimposium 2">
-                <img src="assets/video/teaser-about-02.webp" alt="Frame from Teaser Presimposium 2" width="1280" height="720" loading="lazy" decoding="async">
-                <span class="wf-play" aria-hidden="true"></span>
-              </button>
-            </div>
-
-            <div class="wf-teaser-stack__bar">
-              <button class="wf-reel__arrow" type="button" data-teaser-prev aria-label="Previous teaser"><span aria-hidden="true">←</span></button>
-              <p class="sr-only" role="status" aria-live="polite" data-teaser-status>Showing teaser 1 of 2.</p>
-              <button class="wf-reel__arrow" type="button" data-teaser-next aria-label="Next teaser"><span aria-hidden="true">→</span></button>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
 
     <section class="wf-section wf-section--dark" id="video-work" aria-labelledby="video-title">
       <div class="wf-wrap">
