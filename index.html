@@ -31,7 +31,7 @@
   <link rel="preload" href="assets/fonts/space-grotesk-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="assets/fonts/dm-mono-400-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="assets/images/img-001.webp?v=2" as="image" type="image/webp">
-  <link rel="stylesheet" href="styles.css?v=22">
+  <link rel="stylesheet" href="styles.css?v=23">
   <script src="assets/vendor/page-flip.browser.js" defer></script>
   <script src="app.js?v=18" defer></script>
   <script type="application/ld+json">
@@ -122,13 +122,10 @@
           <span class="wf-hero__line wf-hero__line--accent reveal">Marketing.</span>
         </h1>
 
-        <button class="wf-hero__reel reveal" type="button" data-float="idle" data-project="teaser" aria-label="Play showreel — Teaser Presimposium">
-          <span class="wf-hero__reel-frame">
-            <img src="assets/video/teaser-presimposium-poster.webp" alt="Frame from the Teaser Presimposium showreel" width="1280" height="720" fetchpriority="high" decoding="async">
-          </span>
-          <span class="wf-play wf-play--sm" aria-hidden="true"></span>
-          <span class="wf-hero__reel-meta"><span>Showreel</span><span>2026</span></span>
-        </button>
+        <figure class="wf-hero__portrait reveal" data-float="idle">
+          <img src="assets/images/img-001.webp?v=2" alt="Shatya Gian at a dental industry event" width="1024" height="1536" fetchpriority="high" decoding="async">
+          <figcaption><span>On location</span><span>Jakarta · 2026</span></figcaption>
+        </figure>
       </div>
 
       <div class="wf-hero__bottom">
@@ -167,11 +164,6 @@
         <h2 id="about-title" class="wf-h2 wf-about__title reveal">Stories first.<br>Frames second.<br><em>Impact always.</em></h2>
 
         <div class="wf-about__grid">
-          <figure class="wf-about__portrait reveal" data-float="idle">
-            <img src="assets/images/img-001.webp?v=2" alt="Shatya Gian at a dental industry event" width="1024" height="1536" loading="lazy" decoding="async">
-            <figcaption><span>On location</span><span>Jakarta · 2026</span></figcaption>
-          </figure>
-
           <div class="wf-about__copy reveal">
             <p class="wf-lead">I'm Shatya, a creative digital marketing professional working between the edit bay and the design canvas.</p>
             <p>For the past five years I've built content for dental brands, marketplace sellers, event teams, and community media — from daily social video to print collateral and full campaign systems.</p>
@@ -184,6 +176,14 @@
             </div>
           </div>
         </div>
+
+        <button class="wf-about__reel reveal" type="button" data-float="idle" data-project="teaser" aria-label="Play showreel — Teaser Presimposium">
+          <span class="wf-about__reel-frame">
+            <img src="assets/video/teaser-presimposium-poster.webp" alt="Frame from the Teaser Presimposium showreel" width="1280" height="720" loading="lazy" decoding="async">
+          </span>
+          <span class="wf-play" aria-hidden="true"></span>
+          <span class="wf-about__reel-meta"><span>Showreel</span><span>2026</span></span>
+        </button>
       </div>
     </section>
 
