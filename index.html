@@ -31,9 +31,9 @@
   <link rel="preload" href="assets/fonts/space-grotesk-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="assets/fonts/dm-mono-400-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="assets/images/img-001.webp?v=2" as="image" type="image/webp">
-  <link rel="stylesheet" href="styles.css?v=24">
+  <link rel="stylesheet" href="styles.css?v=25">
   <script src="assets/vendor/page-flip.browser.js" defer></script>
-  <script src="app.js?v=18" defer></script>
+  <script src="app.js?v=19" defer></script>
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -177,13 +177,41 @@
           </div>
         </div>
 
-        <button class="wf-about__reel reveal" type="button" data-float="idle" data-project="teaser" aria-label="Play showreel — Teaser Presimposium">
-          <span class="wf-about__reel-frame">
-            <img src="assets/video/teaser-presimposium-poster.webp" alt="Frame from the Teaser Presimposium showreel" width="1280" height="720" loading="lazy" decoding="async">
-          </span>
-          <span class="wf-play" aria-hidden="true"></span>
-          <span class="wf-about__reel-meta"><span>Showreel</span><span>2026</span></span>
-        </button>
+        <div class="wf-about__reel-shell reveal" data-float="idle">
+          <div class="wf-reel wf-reel--teaser" data-reel aria-roledescription="carousel" aria-label="Teaser Presimposium cuts">
+            <div class="wf-reel__stage" data-reel-stage tabindex="0" role="group" aria-label="Teaser slides">
+              <article class="wf-video-card wf-reel__card wf-reel__card--wide" data-reel-card role="group" aria-roledescription="slide" aria-label="1 of 2">
+                <button class="wf-video-card__media" type="button" data-project="teaserAbout1" aria-label="Play Teaser Presimposium">
+                  <img src="assets/video/teaser-about-01.webp" alt="Frame from Teaser Presimposium" width="1280" height="720" loading="lazy" decoding="async">
+                  <span class="wf-video-card__index" aria-hidden="true">01</span>
+                  <span class="wf-play" aria-hidden="true"></span>
+                </button>
+                <div class="wf-video-card__info"><h3>Teaser Presimposium</h3><p>Teaser · 16:9</p></div>
+              </article>
+
+              <article class="wf-video-card wf-reel__card wf-reel__card--wide" data-reel-card role="group" aria-roledescription="slide" aria-label="2 of 2">
+                <button class="wf-video-card__media" type="button" data-project="teaserAbout2" aria-label="Play Teaser Presimposium 2">
+                  <img src="assets/video/teaser-about-02.webp" alt="Frame from Teaser Presimposium 2" width="1280" height="720" loading="lazy" decoding="async">
+                  <span class="wf-video-card__index" aria-hidden="true">02</span>
+                  <span class="wf-play" aria-hidden="true"></span>
+                </button>
+                <div class="wf-video-card__info"><h3>Teaser Presimposium 2</h3><p>Teaser trailer · 16:9</p></div>
+              </article>
+            </div>
+
+            <div class="wf-reel__bar">
+              <button class="wf-reel__arrow" type="button" data-reel-prev aria-label="Previous teaser"><span aria-hidden="true">←</span></button>
+              <div class="wf-reel__track" aria-hidden="true"><span data-reel-progress></span></div>
+              <p class="wf-reel__counter" aria-live="polite"><span data-reel-current>01</span><span aria-hidden="true"> / 02</span></p>
+              <button class="wf-reel__arrow" type="button" data-reel-next aria-label="Next teaser"><span aria-hidden="true">→</span></button>
+            </div>
+
+            <div class="wf-reel__dots" role="tablist" aria-label="Choose teaser">
+              <button type="button" data-reel-dot aria-label="Show Teaser Presimposium" aria-selected="true"></button>
+              <button type="button" data-reel-dot aria-label="Show Teaser Presimposium 2" aria-selected="false"></button>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
 

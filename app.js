@@ -73,6 +73,24 @@ const projects = {
       src: "https://bae6uxmcmapaqoni.public.blob.vercel-storage.com/video/teaser-presimposium-trailer-3.mp4",
       poster: "assets/video/teaser-presimposium-poster.webp"
     }
+  },
+  teaserAbout1: {
+    meta: "Teaser · Video · 2026",
+    title: "Teaser Presimposium",
+    description: "A short cinematic teaser introducing Presimposium, cut for social media announcement.",
+    video: {
+      src: "https://bae6uxmcmapaqoni.public.blob.vercel-storage.com/video/teaser-presimposium.mp4",
+      poster: "assets/video/teaser-about-01.webp"
+    }
+  },
+  teaserAbout2: {
+    meta: "Teaser · Video · 2026",
+    title: "Teaser Presimposium 2",
+    description: "A teaser trailer introducing Presimposium, cut for social media announcement.",
+    video: {
+      src: "https://bae6uxmcmapaqoni.public.blob.vercel-storage.com/video/teaser-presimposium-trailer-3.mp4",
+      poster: "assets/video/teaser-about-02.webp"
+    }
   }
 };
 

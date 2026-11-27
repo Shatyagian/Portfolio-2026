@@ -4531,69 +4531,9 @@ body.cursor-hover .cursor-ring {
   text-transform: uppercase;
 }
 
-.wf-about__reel {
-  position: relative;
-  display: block;
+.wf-about__reel-shell {
   width: min(70%, 60rem);
   margin: clamp(2.5rem, 6vw, 4.5rem) auto 0;
-  padding: 0.5rem;
-  border: 1px solid var(--wf-line);
-  border-radius: 8px;
-  background: var(--wf-bg-2);
-  color: var(--wf-ink);
-  text-align: left;
-  cursor: pointer;
-  transition: border-color 200ms ease;
-}
-
-.wf-about__reel:hover {
-  border-color: var(--wf-accent);
-}
-
-.wf-about__reel-frame {
-  display: block;
-  overflow: hidden;
-  border-radius: 5px;
-  aspect-ratio: 16 / 9;
-  background: #000;
-}
-
-.wf-about__reel-frame img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: transform 600ms var(--ease);
-}
-
-.wf-about__reel:hover .wf-about__reel-frame img {
-  transform: scale(1.03);
-}
-
-.wf-about__reel .wf-play {
-  position: absolute;
-  top: calc(50% - 0.8rem);
-  left: 50%;
-  width: clamp(3.2rem, 5vw, 4.2rem);
-  height: clamp(3.2rem, 5vw, 4.2rem);
-  translate: -50% -50%;
-}
-
-.wf-about__reel .wf-play::before {
-  border-top-width: 0.5rem;
-  border-bottom-width: 0.5rem;
-  border-left-width: 0.82rem;
-}
-
-.wf-about__reel-meta {
-  display: flex;
-  justify-content: space-between;
-  gap: 0.5rem;
-  padding: 0.65rem 0.15rem 0.05rem;
-  font-family: var(--mono);
-  font-size: 0.53rem;
-  letter-spacing: 0.1em;
-  color: var(--wf-ink-2);
-  text-transform: uppercase;
 }
 
 .wf-hero__bottom {
@@ -5730,8 +5670,12 @@ body.cursor-hover .cursor-ring {
     width: clamp(5.5rem, 18vw, 8rem);
   }
 
-  .wf-about__reel {
+  .wf-about__reel-shell {
     width: 88%;
+  }
+
+  .wf-reel--teaser {
+    --wf-card-w: min(78vw, 34rem);
   }
 
   .wf-credentials__grid {
@@ -5789,9 +5733,13 @@ body.cursor-hover .cursor-ring {
     font-size: 0.45rem;
   }
 
-  .wf-about__reel {
+  .wf-about__reel-shell {
     width: 100%;
     margin-top: 2.2rem;
+  }
+
+  .wf-reel--teaser {
+    --wf-card-w: min(86vw, 26rem);
   }
 
   .wf-hero__foot {
@@ -5905,11 +5853,15 @@ body.cursor-hover .cursor-ring {
     animation: none;
   }
 
-  .wf-about__reel,
+  .wf-about__reel-shell,
   .wf-shot img,
   .wf-video-card__media img,
   .wf-feature__media img,
   .wf-wide-card__media img {
+    transition: none;
+  }
+
+  .wf-reel--teaser .wf-reel__card {
     transition: none;
   }
 
@@ -6180,7 +6132,7 @@ body.cursor-hover .cursor-ring {
   transition: transform 280ms var(--ease), box-shadow 280ms var(--ease);
 }
 
-.wf-page .wf-about__reel[data-float] {
+.wf-page .wf-about__reel-shell[data-float] {
   --wf-depth: 900px;
   translate: 0px;
   rotate: 0deg;
@@ -6212,7 +6164,7 @@ body.cursor-hover .cursor-ring {
     box-shadow: 0 24px 48px -28px rgba(198, 255, 61, 0.45);
   }
 
-  .wf-page .wf-about__reel[data-float]:hover {
+  .wf-page .wf-about__reel-shell[data-float]:hover {
     --wf-float-lift: -4px;
   }
 
@@ -6252,7 +6204,7 @@ body.cursor-hover .cursor-ring {
     will-change: transform;
   }
 
-  .wf-page .wf-about__reel[data-float="idle"] {
+  .wf-page .wf-about__reel-shell[data-float="idle"] {
     animation: wf-about-reel-float 5.6s ease-in-out infinite;
     animation-delay: -1.2s;
     will-change: translate, rotate, scale;
@@ -6302,6 +6254,22 @@ body.cursor-hover .cursor-ring {
 .wf-reel {
   --wf-card-w: clamp(14rem, 26vw, 21rem);
   position: relative;
+}
+
+.wf-reel--teaser {
+  --wf-card-w: clamp(18rem, 46vw, 46rem);
+}
+
+.wf-reel--teaser .wf-reel__stage {
+  height: calc(var(--wf-card-w) * 0.5625 + 5.2rem);
+}
+
+.wf-reel--teaser .wf-video-card__media {
+  aspect-ratio: 16 / 9;
+}
+
+.wf-reel--teaser .wf-reel__track span {
+  width: 50%;
 }
 
 .wf-reel__stage {
