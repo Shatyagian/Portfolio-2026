@@ -4536,6 +4536,64 @@ body.cursor-hover .cursor-ring {
   margin: clamp(2.5rem, 6vw, 4.5rem) auto 0;
 }
 
+.wf-teaser-stack {
+  --wf-teaser-w: clamp(18rem, 46vw, 46rem);
+  position: relative;
+}
+
+.wf-teaser-stack__stage {
+  position: relative;
+  height: calc(var(--wf-teaser-w) * 0.5625 + 4.6rem);
+  perspective: 1200px;
+}
+
+.wf-teaser-card {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: var(--wf-teaser-w);
+  margin-left: calc(var(--wf-teaser-w) / -2);
+  transform:
+    translate(var(--wf-tx, 0%), var(--wf-ty, 0%))
+    rotate(var(--wf-rot, 0deg))
+    scale(var(--wf-scale, 1));
+  opacity: var(--wf-card-opacity, 1);
+  z-index: var(--wf-card-z, 1);
+  transform-style: preserve-3d;
+  transition: transform 560ms var(--ease), opacity 560ms var(--ease), box-shadow 560ms var(--ease);
+}
+
+.wf-teaser-card:not([data-active]) {
+  --wf-tx: 7%;
+  --wf-ty: -5%;
+  --wf-rot: 4deg;
+  --wf-scale: 0.94;
+  --wf-card-opacity: 0.82;
+  --wf-card-z: 1;
+}
+
+.wf-teaser-card[data-active] {
+  --wf-tx: 0%;
+  --wf-ty: 0%;
+  --wf-rot: 0deg;
+  --wf-scale: 1;
+  --wf-card-opacity: 1;
+  --wf-card-z: 2;
+  box-shadow: 0 24px 50px -30px rgba(198, 255, 61, 0.4);
+}
+
+.wf-teaser-card .wf-video-card__media {
+  aspect-ratio: 16 / 9;
+}
+
+.wf-teaser-stack__bar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
 .wf-hero__bottom {
   display: flex;
   align-items: flex-end;
@@ -5674,8 +5732,8 @@ body.cursor-hover .cursor-ring {
     width: 88%;
   }
 
-  .wf-reel--teaser {
-    --wf-card-w: min(78vw, 34rem);
+  .wf-teaser-stack {
+    --wf-teaser-w: min(78vw, 34rem);
   }
 
   .wf-credentials__grid {
@@ -5738,8 +5796,8 @@ body.cursor-hover .cursor-ring {
     margin-top: 2.2rem;
   }
 
-  .wf-reel--teaser {
-    --wf-card-w: min(86vw, 26rem);
+  .wf-teaser-stack {
+    --wf-teaser-w: min(86vw, 26rem);
   }
 
   .wf-hero__foot {
@@ -5861,7 +5919,7 @@ body.cursor-hover .cursor-ring {
     transition: none;
   }
 
-  .wf-reel--teaser .wf-reel__card {
+  .wf-teaser-card {
     transition: none;
   }
 
@@ -6254,22 +6312,6 @@ body.cursor-hover .cursor-ring {
 .wf-reel {
   --wf-card-w: clamp(14rem, 26vw, 21rem);
   position: relative;
-}
-
-.wf-reel--teaser {
-  --wf-card-w: clamp(18rem, 46vw, 46rem);
-}
-
-.wf-reel--teaser .wf-reel__stage {
-  height: calc(var(--wf-card-w) * 0.5625 + 5.2rem);
-}
-
-.wf-reel--teaser .wf-video-card__media {
-  aspect-ratio: 16 / 9;
-}
-
-.wf-reel--teaser .wf-reel__track span {
-  width: 50%;
 }
 
 .wf-reel__stage {

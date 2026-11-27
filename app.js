@@ -890,3 +890,37 @@ if (catalog && catalogStage && catalogBookEl) {
     render();
   });
 })();
+
+/* About teaser card stack -------------------------------------------------- */
+(() => {
+  document.querySelectorAll("[data-teaser-stack]").forEach((stack) => {
+    const cards = [...stack.querySelectorAll("[data-teaser-card]")];
+    const prev = stack.querySelector("[data-teaser-prev]");
+    const next = stack.querySelector("[data-teaser-next]");
+    const current = stack.querySelector("[data-teaser-current]");
+    if (cards.length < 2) return;
+
+    let active = Math.max(0, cards.findIndex((card) => card.hasAttribute("data-active")));
+    const pad = (value) => String(value).padStart(2, "0");
+
+    const render = () => {
+      cards.forEach((card, index) => {
+        if (index === active) card.setAttribute("data-active", "");
+        else card.removeAttribute("data-active");
+      });
+      current.textContent = pad(active + 1);
+    };
+
+    prev?.addEventListener("click", () => {
+      active = (active - 1 + cards.length) % cards.length;
+      render();
+    });
+
+    next?.addEventListener("click", () => {
+      active = (active + 1) % cards.length;
+      render();
+    });
+
+    render();
+  });
+})();
